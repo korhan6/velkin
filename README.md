@@ -70,6 +70,11 @@ Azul industrial `#1F3FA6` (aprobado). La alternativa naranja quemado `#B4410F` e
 
 ## Despliegue
 
-- Web → Vercel (ver `infra/README.md` §Frontend). Define `SITE_URL=https://velkin.com`.
+- Web → **Cloudflare Workers** (OpenNext, ya configurado en `apps/web/wrangler.jsonc`) o Vercel (ver `infra/README.md` §Frontend).
+  Cloudflare → Workers & Pages → Create → Import repository:
+  - Root directory: `apps/web` · Build command: `pnpm run cf:build` · Deploy command: `npx opennextjs-cloudflare deploy`
+  - El nombre del proyecto debe coincidir con `"name"` en `wrangler.jsonc` (`velkin`).
+  - Variables de build **y** de runtime: `SITE_URL`, `NEXT_PUBLIC_SITE_URL` (y `API_URL` / `NEXT_PUBLIC_API_URL` cuando la API esté en línea; sin ellas usa el contenido de ejemplo). Las `NEXT_PUBLIC_*` se fijan al compilar.
+  - Probar en local con el runtime de Workers: `pnpm --filter @velkin/web cf:preview`.
 - API + admin + analítica → una EC2 con Docker Compose + Traefik detrás de Cloudflare: [`infra/README.md`](infra/README.md).
 - Antes de salir: [`docs/LAUNCH_CHECKLIST.md`](docs/LAUNCH_CHECKLIST.md).
