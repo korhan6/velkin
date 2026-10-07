@@ -1,0 +1,257 @@
+// Velkin site API — all timestamps stored as timestamptz in UTC.
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl-openssl-3.0.x", "linux-musl-arm64-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  EDITOR
+}
+
+enum LeadStatus {
+  NEW
+  CONTACTED
+  QUALIFIED
+  PROPOSAL
+  WON
+  LOST
+  SPAM
+}
+
+model User {
+  id            String         @id @default(cuid())
+  email         String         @unique
+  name          String?
+  passwordHash  String
+  role          Role           @default(EDITOR)
+  totpSecret    String?
+  totpEnabled   Boolean        @default(false)
+  lastLoginAt   DateTime?      @db.Timestamptz(3)
+  createdAt     DateTime       @default(now()) @db.Timestamptz(3)
+  updatedAt     DateTime       @updatedAt @db.Timestamptz(3)
+  refreshTokens RefreshToken[]
+}
+
+model RefreshToken {
+  id        String    @id @default(cuid())
+  userId    String
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tokenHash String    @unique
+  family    String
+  userAgent String?
+  expiresAt DateTime  @db.Timestamptz(3)
+  revokedAt DateTime? @db.Timestamptz(3)
+  createdAt DateTime  @default(now()) @db.Timestamptz(3)
+
+  @@index([userId])
+  @@index([family])
+}
+
+model Lead {
+  id              String       @id @default(cuid())
+  reference       String       @unique
+  name            String
+  email           String
+  company         String?
+  jobTitle        String?
+  phone           String?
+  country         String // ISO-3166 alpha-2 chosen by the visitor
+  ipCountry       String? // CF-IPCountry
+  region          String // continent code (AF, AS, EU, NA, SA, OC, AN)
+  locale          String
+  timezone        String
+  projectType     String
+  industry        String?
+  description     String
+  budgetAmount    Decimal?     @db.Decimal(16, 2)
+  budgetCurrency  String?
+  budgetUnsure    Boolean      @default(false)
+  budgetRange     String? // lt25 | 25-100 | 100-500 | gt500 | unsure (USD-equivalent thousands)
+  timeline        String
+  preferredCallAt DateTime?    @db.Timestamptz(3)
+  status          LeadStatus   @default(NEW)
+  notes           String?
+  source          String?
+  utm             Json?
+  consentAt       DateTime     @db.Timestamptz(3)
+  createdAt       DateTime     @default(now()) @db.Timestamptz(3)
+  updatedAt       DateTime     @updatedAt @db.Timestamptz(3)
+  attachments     Attachment[]
+
+  @@index([region])
+  @@index([country])
+  @@index([status, createdAt])
+}
+
+model Attachment {
+  id          String   @id @default(cuid())
+  leadId      String
+  lead        Lead     @relation(fields: [leadId], references: [id], onDelete: Cascade)
+  key         String
+  filename    String
+  contentType String
+  size        Int
+  createdAt   DateTime @default(now()) @db.Timestamptz(3)
+}
+
+/// translations: { "<locale>": { title, summary, problem, solution, results, metrics: [{ value, label }] } }
+model Project {
+  id           String   @id @default(cuid())
+  slug         String   @unique
+  client       String? // null = shown as "client under NDA"
+  industry     String
+  type         String
+  region       String
+  countryCode  String
+  year         Int?
+  specs        Json     @default("[]")
+  services     String[]
+  heroImage    String?
+  videoUrl     String?
+  gallery      String[]
+  featured     Boolean  @default(false)
+  published    Boolean  @default(false)
+  sortOrder    Int      @default(0)
+  translations Json
+  createdAt    DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt    DateTime @updatedAt @db.Timestamptz(3)
+}
+
+/// translations: { "<locale>": { title, summary, body, capabilities[], deliverables[] } }
+model Service {
+  id           String   @id @default(cuid())
+  slug         String   @unique
+  code         String
+  image        String?
+  technologies String[]
+  sortOrder    Int      @default(0)
+  published    Boolean  @default(true)
+  translations Json
+  createdAt    DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt    DateTime @updatedAt @db.Timestamptz(3)
+}
+
+/// translations: { "<locale>": { title, excerpt, body } }
+model Post {
+  id             String    @id @default(cuid())
+  slug           String    @unique
+  coverImage     String?
+  tags           String[]
+  authorName     String?
+  readingMinutes Int       @default(5)
+  publishedAt    DateTime? @db.Timestamptz(3)
+  published      Boolean   @default(false)
+  translations   Json
+  createdAt      DateTime  @default(now()) @db.Timestamptz(3)
+  updatedAt      DateTime  @updatedAt @db.Timestamptz(3)
+}
+
+/// translations: { "<locale>": { role, bio } }
+model TeamMember {
+  id           String   @id @default(cuid())
+  name         String
+  photo        String?
+  linkedin     String?
+  sortOrder    Int      @default(0)
+  published    Boolean  @default(true)
+  translations Json
+  createdAt    DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt    DateTime @updatedAt @db.Timestamptz(3)
+}
+
+model ClientLogo {
+  id        String   @id @default(cuid())
+  name      String
+  logoUrl   String
+  url       String?
+  sortOrder Int      @default(0)
+  published Boolean  @default(true)
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @db.Timestamptz(3)
+}
+
+/// translations: { "<locale>": { title, summary, body, problems[], solutions[] } }
+model Industry {
+  id           String   @id @default(cuid())
+  slug         String   @unique
+  icon         String   @default("factory")
+  image        String?
+  sortOrder    Int      @default(0)
+  published    Boolean  @default(true)
+  translations Json
+  createdAt    DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt    DateTime @updatedAt @db.Timestamptz(3)
+}
+
+/// White papers and datasheets. translations: { "<locale>": { title, summary, fileUrl } }
+model Resource {
+  id           String             @id @default(cuid())
+  slug         String             @unique
+  kind         String             @default("whitepaper") // whitepaper | datasheet
+  gated        Boolean            @default(true)
+  coverImage   String?
+  pages        Int?
+  sortOrder    Int                @default(0)
+  published    Boolean            @default(false)
+  translations Json
+  createdAt    DateTime           @default(now()) @db.Timestamptz(3)
+  updatedAt    DateTime           @updatedAt @db.Timestamptz(3)
+  downloads    ResourceDownload[]
+}
+
+model ResourceDownload {
+  id         String   @id @default(cuid())
+  resourceId String
+  resource   Resource @relation(fields: [resourceId], references: [id], onDelete: Cascade)
+  email      String?
+  name       String?
+  company    String?
+  country    String?
+  locale     String
+  consent    Boolean  @default(false)
+  createdAt  DateTime @default(now()) @db.Timestamptz(3)
+
+  @@index([resourceId, createdAt])
+}
+
+/// Only real, approved testimonials. translations: { "<locale>": { quote, authorRole } }
+model Testimonial {
+  id           String   @id @default(cuid())
+  authorName   String
+  company      String
+  photo        String?
+  projectSlug  String?
+  sortOrder    Int      @default(0)
+  published    Boolean  @default(false)
+  translations Json
+  createdAt    DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt    DateTime @updatedAt @db.Timestamptz(3)
+}
+
+/// Only certifications actually held (ISO 9001, IPC, CE…).
+model Certification {
+  id             String    @id @default(cuid())
+  name           String
+  issuer         String
+  code           String?
+  logoUrl        String?
+  certificateUrl String?
+  validUntil     DateTime? @db.Timestamptz(3)
+  sortOrder      Int       @default(0)
+  published      Boolean   @default(true)
+  createdAt      DateTime  @default(now()) @db.Timestamptz(3)
+  updatedAt      DateTime  @updatedAt @db.Timestamptz(3)
+}
+
+/// Key/value settings: "stats" → { projects, countries, years, robots }, "hero" → { poster, mp4, webm }
+model Setting {
+  key       String   @id
+  value     Json
+  updatedAt DateTime @updatedAt @db.Timestamptz(3)
+}

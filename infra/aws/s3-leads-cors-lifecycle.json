@@ -1,0 +1,20 @@
+{
+  "_comment": "Apply with: aws s3api put-bucket-cors --bucket velkin-leads --cors-configuration file://<(jq .cors s3-leads-cors-lifecycle.json) ; same for lifecycle",
+  "cors": {
+    "CORSRules": [
+      {
+        "AllowedOrigins": ["https://velkin.com", "https://www.velkin.com", "http://localhost:3000"],
+        "AllowedMethods": ["PUT"],
+        "AllowedHeaders": ["content-type", "content-length"],
+        "MaxAgeSeconds": 3600
+      }
+    ]
+  },
+  "lifecycle": {
+    "Rules": [
+      { "ID": "expire-abandoned-uploads", "Status": "Enabled", "Filter": { "Prefix": "leads/tmp/" }, "Expiration": { "Days": 730 } },
+      { "ID": "abort-multipart", "Status": "Enabled", "Filter": {}, "AbortIncompleteMultipartUpload": { "DaysAfterInitiation": 2 } }
+    ]
+  },
+  "publicAccessBlock": { "BlockPublicAcls": true, "IgnorePublicAcls": true, "BlockPublicPolicy": true, "RestrictPublicBuckets": true }
+}

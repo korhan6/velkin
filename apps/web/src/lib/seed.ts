@@ -1,0 +1,328 @@
+/**
+ * Fallback content used when the API is not configured or unreachable (local dev, first deploy).
+ * ⚠️ DEMO DATA: projects, their metrics and the team are placeholders. Replace them from the admin panel
+ * before launch — never publish results, clients or figures you can't back up.
+ * Testimonials, client logos, certifications and stats are intentionally EMPTY: those sections stay hidden
+ * until real content exists.
+ */
+import type { Industry, Post, Project, Service, TeamMember } from './types';
+
+type L<T> = { en: T; es: T };
+const pick = <T,>(v: L<T>, locale: string): T => (locale === 'es' ? v.es : v.en);
+
+type ServiceT = Pick<Service, 'title' | 'summary' | 'body' | 'capabilities' | 'deliverables'>;
+const services: (Pick<Service, 'slug' | 'code' | 'technologies'> & { t: L<ServiceT> })[] = [
+  {
+    slug: 'robotics',
+    code: '01',
+    technologies: ['ROS 2', 'MoveIt 2', 'Nav2', 'BLDC / FOC', 'EtherCAT', 'CAN-FD', 'SolidWorks', 'Onshape'],
+    t: {
+      en: {
+        title: 'Robotics engineering',
+        summary: 'Humanoids, quadrupeds, arms, mobile and telepresence robots, engineered end to end.',
+        body: 'We take robots from requirements to fleet. One team owns kinematics, actuation, electronics, firmware and autonomy, so there is a single accountable partner and fewer integration surprises.\n\n## How an engagement starts\nA two-to-four-week feasibility phase: torque and power budgets, a kinematic study and a costed architecture. Then we iterate functional prototypes until the robot meets its targets in the real environment.',
+        capabilities: ['Humanoid and legged robots', 'Cobots and custom manipulators', 'AMRs, AGVs and SLAM platforms', 'Telepresence systems', 'Teleoperation and motion retargeting', 'Grippers and end effectors'],
+        deliverables: ['Kinematic and torque study', 'CAD, drawings and costed BOM', 'Functional prototype', 'Test report', 'Production handoff package'],
+      },
+      es: {
+        title: 'Ingeniería robótica',
+        summary: 'Humanoides, cuadrúpedos, brazos, robots móviles y de telepresencia, diseñados de punta a punta.',
+        body: 'Llevamos robots de los requisitos a la flota. Un solo equipo domina cinemática, actuación, electrónica, firmware y autonomía: un único responsable y menos sorpresas de integración.\n\n## Cómo empieza un proyecto\nUna fase de factibilidad de dos a cuatro semanas: presupuestos de torque y potencia, estudio cinemático y arquitectura costeada. Después iteramos prototipos funcionales hasta que el robot cumple sus metas en el entorno real.',
+        capabilities: ['Robots humanoides y con patas', 'Cobots y manipuladores a medida', 'AMR, AGV y plataformas SLAM', 'Sistemas de telepresencia', 'Teleoperación y retargeting de movimiento', 'Grippers y efectores finales'],
+        deliverables: ['Estudio cinemático y de torque', 'CAD, planos y BOM costeado', 'Prototipo funcional', 'Informe de pruebas', 'Paquete de transferencia a producción'],
+      },
+    },
+  },
+  {
+    slug: 'industrial-automation',
+    code: '02',
+    technologies: ['Siemens / Beckhoff PLC', 'OPC UA', 'Machine vision', 'Industrial cobots', 'ISO 13849 approach', 'MES integration'],
+    t: {
+      en: {
+        title: 'Industrial automation',
+        summary: 'Robotic cells, machine tending, palletizing and process industrialization.',
+        body: 'We automate repetitive, hazardous or precision-critical tasks. From a single cell to a line retrofit, we design mechanics, controls, safety and HMI, and we measure the result in cycle time, quality and uptime.\n\n## What we measure\nCycle time, first-pass yield, OEE and payback period, agreed with you before the design starts.',
+        capabilities: ['Robotic cells and machine tending', 'Palletizing and end-of-line packaging', 'PLC and industrial PC integration', 'Vision-based quality inspection', 'Machine safety design', 'OEE and production dashboards'],
+        deliverables: ['Process study and ROI model', 'Cell layout', 'Control software', 'FAT / SAT', 'Operator training'],
+      },
+      es: {
+        title: 'Automatización industrial',
+        summary: 'Celdas robóticas, alimentación de máquinas, paletizado e industrialización de procesos.',
+        body: 'Automatizamos tareas repetitivas, peligrosas o de alta precisión. Desde una celda hasta el retrofit de una línea, diseñamos mecánica, control, seguridad y HMI, y medimos el resultado en tiempo de ciclo, calidad y disponibilidad.\n\n## Qué medimos\nTiempo de ciclo, rendimiento a la primera, OEE y periodo de retorno, acordados contigo antes de empezar el diseño.',
+        capabilities: ['Celdas robóticas y alimentación de máquinas', 'Paletizado y empaque de fin de línea', 'Integración de PLC y PC industrial', 'Inspección de calidad por visión', 'Diseño de seguridad de máquinas', 'Tableros de OEE y producción'],
+        deliverables: ['Estudio de proceso y modelo de ROI', 'Layout de la celda', 'Software de control', 'FAT / SAT', 'Capacitación de operarios'],
+      },
+    },
+  },
+  {
+    slug: 'pcb-electronics',
+    code: '03',
+    technologies: ['KiCad', 'Altium', 'STM32', 'ESP32', 'IPC-2221', 'IPC-A-610', 'SPICE'],
+    t: {
+      en: {
+        title: 'PCB and electronics',
+        summary: 'Schematics, multilayer layout, motor drivers and fabrication-ready outputs.',
+        body: 'We design the electronics robots depend on: controller boards, BLDC/FOC motor drivers, battery management, sensor boards and RF links. Every board ships with fabrication and assembly files and a bring-up report.\n\n## Manufacturing\nPrototype and volume runs with partner fabs, including assembly, functional test and conformal coating.',
+        capabilities: ['Schematic capture and component selection', '2–8 layer PCB layout', 'Motor drivers and power stages', 'Battery management and power distribution', 'RF: BLE, Wi-Fi, sub-GHz', 'DFM / DFT and test fixtures'],
+        deliverables: ['Schematic and layout sources', 'Gerbers, BOM, pick-and-place', 'Assembled and tested boards', 'Bring-up report'],
+      },
+      es: {
+        title: 'PCB y electrónica',
+        summary: 'Esquemáticos, layout multicapa, drivers de motor y archivos listos para fabricar.',
+        body: 'Diseñamos la electrónica de la que dependen los robots: tarjetas controladoras, drivers BLDC/FOC, gestión de baterías, tarjetas de sensores y enlaces RF. Cada tarjeta se entrega con archivos de fabricación y ensamble y un informe de puesta en marcha.\n\n## Fabricación\nPrototipos y volumen con fábricas aliadas, incluyendo ensamble, prueba funcional y recubrimiento conformal.',
+        capabilities: ['Esquemáticos y selección de componentes', 'Layout de PCB de 2 a 8 capas', 'Drivers de motor y etapas de potencia', 'Gestión de baterías y distribución de energía', 'RF: BLE, Wi-Fi, sub-GHz', 'DFM / DFT y bancos de prueba'],
+        deliverables: ['Fuentes de esquemático y layout', 'Gerbers, BOM, pick-and-place', 'Tarjetas ensambladas y probadas', 'Informe de puesta en marcha'],
+      },
+    },
+  },
+  {
+    slug: 'software-ros-ai',
+    code: '04',
+    technologies: ['C / C++', 'Rust', 'Python', 'ROS 2', 'Gazebo / Isaac Sim', 'PyTorch', 'ONNX / TensorRT', 'Zephyr RTOS'],
+    t: {
+      en: {
+        title: 'Software, ROS 2 and AI',
+        summary: 'Firmware, ROS 2 architectures, perception, navigation and applied AI.',
+        body: 'Software is what makes a robot useful. We write real-time firmware, ROS 2 architectures, navigation and manipulation pipelines, and AI models that run on the device.\n\n## Ownership\nAll source code lives in your repository, with CI, tests and documentation.',
+        capabilities: ['Embedded firmware and RTOS', 'ROS 2 architecture and drivers', 'SLAM and autonomous navigation', 'Motion planning and manipulation', 'Perception and on-device AI', 'Simulation and digital twins'],
+        deliverables: ['Source code in your repository', 'CI pipeline and tests', 'Simulation environment', 'Technical documentation'],
+      },
+      es: {
+        title: 'Software, ROS 2 e IA',
+        summary: 'Firmware, arquitecturas ROS 2, percepción, navegación e IA aplicada.',
+        body: 'El software es lo que hace útil a un robot. Escribimos firmware de tiempo real, arquitecturas ROS 2, pipelines de navegación y manipulación, y modelos de IA que corren en el dispositivo.\n\n## Propiedad\nTodo el código fuente vive en tu repositorio, con CI, pruebas y documentación.',
+        capabilities: ['Firmware embebido y RTOS', 'Arquitectura y drivers ROS 2', 'SLAM y navegación autónoma', 'Planificación de movimiento y manipulación', 'Percepción e IA embebida', 'Simulación y gemelos digitales'],
+        deliverables: ['Código fuente en tu repositorio', 'Pipeline de CI y pruebas', 'Entorno de simulación', 'Documentación técnica'],
+      },
+    },
+  },
+  {
+    slug: 'prototyping-manufacturing',
+    code: '05',
+    technologies: ['FDM / SLA printing', 'CNC machining', 'Laser cutting', 'Sheet metal', 'DFM / DFA'],
+    t: {
+      en: {
+        title: 'Prototyping and manufacturing',
+        summary: 'Functional prototypes in days and a documented path to series production.',
+        body: 'Our workshop turns designs into hardware quickly: printing, CNC, laser cutting and electronics assembly. Once a design is proven, we prepare DFM changes, supplier packages and pilot batches.\n\n## Scale\nFrom one unit to hundreds, with documentation any qualified factory can build from.',
+        capabilities: ['Additive manufacturing (FDM / SLA)', 'CNC machining and laser cutting', 'Electromechanical assembly', 'DFM / DFA reviews', 'Supplier sourcing and quality control', 'Assembly and test documentation'],
+        deliverables: ['Prototype units', 'DFM report', 'Manufacturing package', 'Pilot batch'],
+      },
+      es: {
+        title: 'Prototipado y manufactura',
+        summary: 'Prototipos funcionales en días y un camino documentado a la producción en serie.',
+        body: 'Nuestro taller convierte diseños en hardware rápidamente: impresión, CNC, corte láser y ensamble electrónico. Cuando el diseño está probado, preparamos cambios DFM, paquetes para proveedores y lotes piloto.\n\n## Escala\nDe una unidad a cientos, con documentación con la que cualquier fábrica calificada puede producir.',
+        capabilities: ['Manufactura aditiva (FDM / SLA)', 'Mecanizado CNC y corte láser', 'Ensamble electromecánico', 'Revisiones DFM / DFA', 'Proveedores y control de calidad', 'Documentación de ensamble y pruebas'],
+        deliverables: ['Unidades prototipo', 'Informe DFM', 'Paquete de manufactura', 'Lote piloto'],
+      },
+    },
+  },
+];
+
+type IndustryT = Pick<Industry, 'title' | 'summary' | 'body' | 'problems' | 'solutions'>;
+const industries: (Pick<Industry, 'slug' | 'icon'> & { t: L<IndustryT> })[] = [
+  {
+    slug: 'manufacturing',
+    icon: 'factory',
+    t: {
+      en: { title: 'Manufacturing', summary: 'Cells and lines that hold cycle time and quality shift after shift.', body: 'We work with plant and operations teams to automate the steps that limit throughput or depend on hard-to-find labor.', problems: ['Bottlenecks in manual stations', 'Variable quality between shifts', 'Ergonomic injuries in repetitive tasks', 'Difficulty hiring skilled operators'], solutions: ['Robotic cells and machine tending', 'Vision-based inspection', 'Palletizing and end-of-line automation', 'OEE monitoring'] },
+      es: { title: 'Manufactura', summary: 'Celdas y líneas que sostienen el tiempo de ciclo y la calidad turno tras turno.', body: 'Trabajamos con los equipos de planta y operaciones para automatizar los pasos que limitan el rendimiento o dependen de mano de obra difícil de conseguir.', problems: ['Cuellos de botella en estaciones manuales', 'Calidad variable entre turnos', 'Lesiones ergonómicas en tareas repetitivas', 'Dificultad para contratar operarios calificados'], solutions: ['Celdas robóticas y alimentación de máquinas', 'Inspección por visión', 'Paletizado y automatización de fin de línea', 'Monitoreo de OEE'] },
+    },
+  },
+  {
+    slug: 'logistics',
+    icon: 'boxes',
+    t: {
+      en: { title: 'Logistics', summary: 'Mobile robots and picking systems for warehouses and distribution centers.', body: 'Internal transport, picking and palletizing that integrate with your WMS and adapt to changing layouts.', problems: ['Long walking distances for pickers', 'Seasonal demand peaks', 'Damage in manual handling'], solutions: ['AMRs for internal transport', 'Robotic picking and palletizing', 'Fleet management integrated with WMS'] },
+      es: { title: 'Logística', summary: 'Robots móviles y sistemas de picking para bodegas y centros de distribución.', body: 'Transporte interno, picking y paletizado que se integran con tu WMS y se adaptan a layouts cambiantes.', problems: ['Largos recorridos de los operarios', 'Picos de demanda estacionales', 'Daños por manipulación manual'], solutions: ['AMR para transporte interno', 'Picking y paletizado robotizados', 'Gestión de flota integrada con el WMS'] },
+    },
+  },
+  {
+    slug: 'energy',
+    icon: 'bolt',
+    t: {
+      en: { title: 'Energy and inspection', summary: 'Robotic inspection for plants, substations and hazardous areas.', body: 'Legged and wheeled platforms with thermal, acoustic and gas sensing that run scheduled routes and report anomalies.', problems: ['Manual rounds in hazardous areas', 'Inconsistent inspection records', 'Unplanned downtime'], solutions: ['Autonomous inspection robots', 'Sensor payload integration', 'Anomaly reporting connected to maintenance systems'] },
+      es: { title: 'Energía e inspección', summary: 'Inspección robotizada en plantas, subestaciones y zonas peligrosas.', body: 'Plataformas con patas o ruedas con sensores térmicos, acústicos y de gases que recorren rutas programadas y reportan anomalías.', problems: ['Rondas manuales en zonas peligrosas', 'Registros de inspección inconsistentes', 'Paradas no planificadas'], solutions: ['Robots de inspección autónomos', 'Integración de sensores', 'Reporte de anomalías conectado a mantenimiento'] },
+    },
+  },
+  {
+    slug: 'healthcare',
+    icon: 'cross',
+    t: {
+      en: { title: 'Healthcare', summary: 'Telepresence, internal logistics and lab automation for clinical environments.', body: 'Systems designed for clean environments, quiet operation and safe interaction with patients and staff.', problems: ['Staff time spent on internal transport', 'Remote specialist access', 'Repetitive lab handling'], solutions: ['Telepresence robots', 'Autonomous delivery robots', 'Lab sample-handling automation'] },
+      es: { title: 'Salud', summary: 'Telepresencia, logística interna y automatización de laboratorio para entornos clínicos.', body: 'Sistemas diseñados para entornos limpios, operación silenciosa e interacción segura con pacientes y personal.', problems: ['Tiempo del personal dedicado a transporte interno', 'Acceso remoto a especialistas', 'Manipulación repetitiva en laboratorio'], solutions: ['Robots de telepresencia', 'Robots autónomos de entrega', 'Automatización de manejo de muestras'] },
+    },
+  },
+  {
+    slug: 'events',
+    icon: 'spark',
+    t: {
+      en: { title: 'Events and entertainment', summary: 'Humanoid and telepresence robots that perform reliably in front of an audience.', body: 'Show robots with safe motion envelopes, multilingual voice and teleoperation, engineered to run the same show every time.', problems: ['Unreliable demo hardware', 'Safety around crowds', 'Short setup windows'], solutions: ['Teleoperated humanoids', 'Telepresence for remote guests', 'Show control and safety envelopes'] },
+      es: { title: 'Eventos y entretenimiento', summary: 'Robots humanoides y de telepresencia que funcionan de forma confiable frente al público.', body: 'Robots para shows con envolventes de movimiento seguras, voz multilingüe y teleoperación, pensados para repetir el mismo show cada vez.', problems: ['Hardware de demostración poco confiable', 'Seguridad cerca del público', 'Ventanas de montaje cortas'], solutions: ['Humanoides teleoperados', 'Telepresencia para invitados remotos', 'Control de show y envolventes de seguridad'] },
+    },
+  },
+  {
+    slug: 'education',
+    icon: 'book',
+    t: {
+      en: { title: 'Education and research', summary: 'Robotic platforms and labs for universities and research centers.', body: 'Open, documented platforms on ROS 2 that students and researchers can extend, with training for faculty.', problems: ['Closed commercial platforms', 'Lack of documentation', 'Limited lab budgets'], solutions: ['Open ROS 2 research platforms', 'Turnkey robotics labs', 'Curriculum and faculty training'] },
+      es: { title: 'Educación e investigación', summary: 'Plataformas robóticas y laboratorios para universidades y centros de investigación.', body: 'Plataformas abiertas y documentadas sobre ROS 2 que estudiantes e investigadores pueden ampliar, con capacitación para docentes.', problems: ['Plataformas comerciales cerradas', 'Falta de documentación', 'Presupuestos de laboratorio limitados'], solutions: ['Plataformas de investigación abiertas en ROS 2', 'Laboratorios de robótica llave en mano', 'Contenido curricular y capacitación docente'] },
+    },
+  },
+  {
+    slug: 'government',
+    icon: 'shield',
+    t: {
+      en: { title: 'Government and public safety', summary: 'Remote-operated systems that keep people out of dangerous situations.', body: 'Inspection and intervention robots with robust communications, documented under confidentiality agreements.', problems: ['Personnel exposure in hazardous tasks', 'Communication in difficult environments', 'Strict documentation requirements'], solutions: ['Teleoperated inspection platforms', 'Robust radio links', 'Full technical documentation under NDA'] },
+      es: { title: 'Gobierno y seguridad pública', summary: 'Sistemas operados a distancia que mantienen a las personas fuera de situaciones peligrosas.', body: 'Robots de inspección e intervención con comunicaciones robustas, documentados bajo acuerdos de confidencialidad.', problems: ['Exposición del personal en tareas peligrosas', 'Comunicación en entornos difíciles', 'Requisitos estrictos de documentación'], solutions: ['Plataformas de inspección teleoperadas', 'Enlaces de radio robustos', 'Documentación técnica completa bajo NDA'] },
+    },
+  },
+  {
+    slug: 'startups',
+    icon: 'rocket',
+    t: {
+      en: { title: 'Hardware startups', summary: 'An engineering team on demand, from first prototype to pilot production.', body: 'We help founders turn a validated idea into a manufacturable product without building a full hardware team on day one.', problems: ['No in-house hardware team', 'Prototypes that cannot be manufactured', 'Investor milestones with fixed dates'], solutions: ['End-to-end product engineering', 'DFM and supplier preparation', 'Milestone-based delivery'] },
+      es: { title: 'Startups de hardware', summary: 'Un equipo de ingeniería a demanda, del primer prototipo a la producción piloto.', body: 'Ayudamos a fundadores a convertir una idea validada en un producto fabricable sin armar un equipo de hardware completo desde el primer día.', problems: ['Sin equipo de hardware propio', 'Prototipos que no se pueden fabricar', 'Hitos con inversionistas en fechas fijas'], solutions: ['Ingeniería de producto de punta a punta', 'DFM y preparación de proveedores', 'Entregas por hitos'] },
+    },
+  },
+];
+
+type ProjectT = Pick<Project, 'title' | 'summary' | 'problem' | 'solution' | 'results' | 'metrics'>;
+const projects: (Omit<Project, keyof ProjectT> & { t: L<ProjectT> })[] = [
+  {
+    slug: 'cobot-palletizing-cell',
+    client: null,
+    industry: 'manufacturing',
+    type: 'cell',
+    region: 'EU',
+    countryCode: 'DE',
+    year: 2025,
+    featured: true,
+    services: ['industrial-automation', 'robotics'],
+    specs: [
+      { label: 'Payload', value: '20 kg' },
+      { label: 'Throughput', value: '9 cases / min' },
+      { label: 'Footprint', value: '2.4 × 2.0 m' },
+      { label: 'Safety', value: 'Area scanners, PL d' },
+    ],
+    gallery: [],
+    t: {
+      en: { title: 'End-of-line cobot palletizing cell', summary: 'A compact palletizer with vision-based case detection for a food packaging line.', problem: 'Manual palletizing was the line bottleneck and the main source of ergonomic injuries.', solution: 'A cobot cell with vacuum gripper, a pattern editor for operators and safety scanners that allow shared work areas.', results: 'The line reached its target throughput and two operators moved to quality roles.', metrics: [{ value: '−38 %', label: 'cycle time' }, { value: '14 wk', label: 'from kickoff to SAT' }, { value: '99.2 %', label: 'uptime in first quarter' }] },
+      es: { title: 'Celda de paletizado con cobot al final de línea', summary: 'Un paletizador compacto con detección de cajas por visión para una línea de empaque de alimentos.', problem: 'El paletizado manual era el cuello de botella de la línea y la principal fuente de lesiones ergonómicas.', solution: 'Una celda con cobot, gripper de vacío, editor de patrones para operarios y escáneres de seguridad que permiten áreas de trabajo compartidas.', results: 'La línea alcanzó su rendimiento objetivo y dos operarios pasaron a funciones de calidad.', metrics: [{ value: '−38 %', label: 'tiempo de ciclo' }, { value: '14 sem', label: 'del arranque al SAT' }, { value: '99,2 %', label: 'disponibilidad el primer trimestre' }] },
+    },
+  },
+  {
+    slug: 'quadruped-inspection',
+    client: null,
+    industry: 'energy',
+    type: 'quadruped',
+    region: 'NA',
+    countryCode: 'US',
+    year: 2026,
+    featured: false,
+    services: ['robotics', 'software-ros-ai', 'pcb-electronics'],
+    specs: [
+      { label: 'DOF', value: '12' },
+      { label: 'Autonomy', value: '2.5 h' },
+      { label: 'Sensors', value: 'LiDAR, thermal, gas' },
+      { label: 'Ingress', value: 'IP54' },
+    ],
+    gallery: [],
+    t: {
+      en: { title: 'Autonomous inspection quadruped', summary: 'Legged inspection platform with thermal and gas sensing for a processing plant.', problem: 'Daily manual rounds in areas with gas exposure risk.', solution: 'Sensor payload integration, scheduled autonomous routes and anomaly reports sent to the maintenance system.', results: 'Rounds now run on schedule without personnel in classified areas.', metrics: [{ value: '3×', label: 'inspection frequency' }, { value: '0', label: 'staff entries to classified zones' }] },
+      es: { title: 'Cuadrúpedo de inspección autónoma', summary: 'Plataforma con patas para inspección con sensores térmicos y de gases en una planta de procesos.', problem: 'Rondas manuales diarias en zonas con riesgo de exposición a gases.', solution: 'Integración de sensores, rutas autónomas programadas y reportes de anomalías enviados al sistema de mantenimiento.', results: 'Las rondas se ejecutan según el programa sin personal en zonas clasificadas.', metrics: [{ value: '3×', label: 'frecuencia de inspección' }, { value: '0', label: 'ingresos de personal a zonas clasificadas' }] },
+    },
+  },
+  {
+    slug: 'amr-controller-board',
+    client: null,
+    industry: 'logistics',
+    type: 'electronics',
+    region: 'NA',
+    countryCode: 'MX',
+    year: 2025,
+    featured: false,
+    services: ['pcb-electronics', 'prototyping-manufacturing'],
+    specs: [
+      { label: 'Layers', value: '6' },
+      { label: 'Drives', value: '4 × BLDC FOC, 40 A' },
+      { label: 'MCU', value: 'STM32H7, CAN-FD' },
+      { label: 'Input', value: '24–58 V' },
+    ],
+    gallery: [],
+    t: {
+      en: { title: 'Integrated AMR controller board', summary: 'Motion control and power board for a mobile robot fleet.', problem: 'A stack of off-the-shelf boards with heavy wiring and field failures.', solution: 'A single six-layer board with four FOC drivers, CAN-FD and safe torque off.', results: 'Simpler assembly and fewer field failures across the fleet.', metrics: [{ value: '−62 %', label: 'harness connections' }, { value: '−41 %', label: 'electronics cost per robot' }] },
+      es: { title: 'Tarjeta controladora integrada para AMR', summary: 'Tarjeta de control de movimiento y potencia para una flota de robots móviles.', problem: 'Una pila de tarjetas comerciales con mucho cableado y fallas en campo.', solution: 'Una sola tarjeta de seis capas con cuatro drivers FOC, CAN-FD y safe torque off.', results: 'Ensamble más simple y menos fallas en campo en toda la flota.', metrics: [{ value: '−62 %', label: 'conexiones del arnés' }, { value: '−41 %', label: 'costo de electrónica por robot' }] },
+    },
+  },
+  {
+    slug: 'event-telepresence',
+    client: null,
+    industry: 'events',
+    type: 'telepresence',
+    region: 'SA',
+    countryCode: 'CO',
+    year: 2026,
+    featured: false,
+    services: ['robotics', 'software-ros-ai'],
+    specs: [
+      { label: 'Latency', value: '< 180 ms' },
+      { label: 'Autonomy', value: '6 h' },
+      { label: 'Display', value: '10.1 in + 4K camera' },
+      { label: 'Drive', value: 'Differential, obstacle stop' },
+    ],
+    gallery: [],
+    t: {
+      en: { title: 'Event telepresence robot', summary: 'Low-latency telepresence for remote guests at live events.', problem: 'Remote guests needed a physical presence on the event floor.', solution: 'Differential base, pan/tilt head and a WebRTC control stack with automatic obstacle stop.', results: 'Operated across multiple events without incidents.', metrics: [{ value: '< 180 ms', label: 'glass-to-glass latency' }, { value: '6 h', label: 'continuous operation' }] },
+      es: { title: 'Robot de telepresencia para eventos', summary: 'Telepresencia de baja latencia para invitados remotos en eventos en vivo.', problem: 'Invitados remotos necesitaban presencia física en el evento.', solution: 'Base diferencial, cabeza pan/tilt y un stack de control WebRTC con parada automática ante obstáculos.', results: 'Operó en varios eventos sin incidentes.', metrics: [{ value: '< 180 ms', label: 'latencia de extremo a extremo' }, { value: '6 h', label: 'operación continua' }] },
+    },
+  },
+];
+
+const posts: (Omit<Post, 'title' | 'excerpt' | 'body'> & { t: L<Pick<Post, 'title' | 'excerpt' | 'body'>> })[] = [
+  {
+    slug: 'sizing-actuators-for-legged-robots',
+    tags: ['Actuation'],
+    publishedAt: '2026-09-15T00:00:00.000Z',
+    authorName: 'Velkin Engineering',
+    readingMinutes: 6,
+    coverImage: null,
+    t: {
+      en: { title: 'Sizing actuators for legged robots', excerpt: 'A practical torque budget for hip and knee joints, and why continuous torque, not peak torque, decides the motor.', body: '## Start from the stance\nStatic knee torque is roughly the share of body weight on that leg times the horizontal distance from foot to joint.\n\n## Add the dynamics\nJumps and stairs can demand two to three times the static torque for short bursts. The motor thermal limit, not peak torque, usually sets the continuous rating.\n\n## Checklist\n- Mass budget with margin\n- Worst-case leg pose\n- Gear ratio versus backdrivability\n- Thermal model of the motor' },
+      es: { title: 'Cómo dimensionar actuadores para robots con patas', excerpt: 'Un presupuesto práctico de torque para cadera y rodilla, y por qué el torque continuo, no el pico, define el motor.', body: '## Empieza por la postura\nEl torque estático en la rodilla es aproximadamente la fracción del peso del cuerpo sobre esa pata por la distancia horizontal del pie a la articulación.\n\n## Suma la dinámica\nSaltos y escaleras pueden exigir de dos a tres veces el torque estático en ráfagas cortas. El límite térmico del motor, no el torque pico, suele definir la capacidad continua.\n\n## Checklist\n- Presupuesto de masa con margen\n- Postura de pata más desfavorable\n- Relación de reducción frente a reversibilidad\n- Modelo térmico del motor' },
+    },
+  },
+  {
+    slug: 'ros2-architecture-for-small-fleets',
+    tags: ['Software'],
+    publishedAt: '2026-08-20T00:00:00.000Z',
+    authorName: 'Velkin Engineering',
+    readingMinutes: 5,
+    coverImage: null,
+    t: {
+      en: { title: 'A ROS 2 architecture for small robot fleets', excerpt: 'Namespaces, DDS discovery and a web bridge that does not saturate your network.', body: '## Namespaces first\nGive every robot a namespace and keep topic names identical across the fleet.\n\n## Discovery\nOn shared Wi-Fi, use a discovery server instead of multicast.\n\n## Web bridge\nExpose only the topics the dashboard needs, rate-limited, through a single gateway.' },
+      es: { title: 'Una arquitectura ROS 2 para flotas pequeñas', excerpt: 'Namespaces, descubrimiento DDS y un puente web que no satura tu red.', body: '## Primero los namespaces\nDale a cada robot un namespace y mantén los nombres de tópicos idénticos en toda la flota.\n\n## Descubrimiento\nEn Wi-Fi compartido, usa un discovery server en vez de multicast.\n\n## Puente web\nExpón solo los tópicos que necesita el tablero, con límite de frecuencia, a través de un único gateway.' },
+    },
+  },
+];
+
+const team: L<TeamMember[]> = {
+  en: [
+    { name: 'Founder', role: 'CEO and engineering lead', bio: 'Replace with the real bio from the admin panel.' },
+    { name: 'Co-founder', role: 'Head of operations', bio: 'Replace with the real bio from the admin panel.' },
+  ],
+  es: [
+    { name: 'Fundador', role: 'CEO y líder de ingeniería', bio: 'Reemplaza con la biografía real desde el panel.' },
+    { name: 'Cofundador', role: 'Director de operaciones', bio: 'Reemplaza con la biografía real desde el panel.' },
+  ],
+};
+
+export const seedRaw = { services, industries, projects, posts };
+
+export const seed = {
+  services: (locale: string): Service[] => services.map(({ t, ...s }) => ({ ...s, image: null, ...pick(t, locale) })),
+  industries: (locale: string): Industry[] => industries.map(({ t, ...s }) => ({ ...s, image: null, ...pick(t, locale) })),
+  projects: (locale: string): Project[] => projects.map(({ t, ...p }) => ({ ...p, ...pick(t, locale) })),
+  posts: (locale: string): Post[] => posts.map(({ t, ...p }) => ({ ...p, ...pick(t, locale) })),
+  team: (locale: string): TeamMember[] => pick(team, locale),
+};

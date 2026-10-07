@@ -1,0 +1,29 @@
+# Website → Vercel (global edge). If you connect the repo in the Vercel dashboard (root: apps/web),
+# Vercel deploys automatically and this workflow is optional. Kept for explicit, CI-gated releases.
+name: Deploy web (Vercel)
+
+on:
+  push:
+    branches: [main]
+    paths: ["apps/web/**", "packages/**", "pnpm-lock.yaml"]
+  workflow_dispatch:
+
+concurrency: deploy-web
+
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-24.04
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+      - run: npx -y vercel@latest pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+      - run: npx -y vercel@latest build --prod --token=${{ secrets.VERCEL_TOKEN }}
+      - run: npx -y vercel@latest deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}

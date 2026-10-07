@@ -1,0 +1,28 @@
+http:
+  middlewares:
+    secure-headers:
+      headers:
+        stsSeconds: 63072000
+        stsIncludeSubdomains: true
+        stsPreload: true
+        contentTypeNosniff: true
+        frameDeny: true
+        referrerPolicy: strict-origin-when-cross-origin
+        permissionsPolicy: "camera=(), microphone=(), geolocation=()"
+        customResponseHeaders:
+          Server: ""
+          X-Powered-By: ""
+    compress:
+      compress:
+        excludedContentTypes: ["text/event-stream"]
+    # Optional: put in front of admin if you don't use Cloudflare Access
+    admin-allowlist:
+      ipAllowList:
+        sourceCriterion: { ipStrategy: { depth: 1 } }
+        sourceRange: ["0.0.0.0/0"] # replace with your office/VPN ranges
+
+tls:
+  options:
+    default:
+      minVersion: VersionTLS12
+      sniStrict: true

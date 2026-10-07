@@ -1,0 +1,290 @@
+{
+  "meta": {
+    "title": "Velkin — Ingeniería en robótica y automatización",
+    "description": "Velkin diseña y construye robots, celdas automatizadas y la electrónica y el software que los hacen funcionar, del prototipo a la producción en serie, para clientes industriales en todo el mundo."
+  },
+  "nav": {
+    "services": "Servicios",
+    "industries": "Industrias",
+    "projects": "Proyectos",
+    "about": "Nosotros",
+    "resources": "Recursos",
+    "contact": "Contacto",
+    "cta": "Hablar con un ingeniero",
+    "menu": "Menú",
+    "close": "Cerrar",
+    "skip": "Ir al contenido",
+    "language": "Idioma"
+  },
+  "common": {
+    "learnMore": "Ver más",
+    "viewAll": "Ver todo",
+    "back": "Volver",
+    "demo": "Contenido de ejemplo: reemplázalo desde el panel antes de publicar.",
+    "photo": "Foto",
+    "video": "Video"
+  },
+  "hero": {
+    "eyebrow": "Motion Engineered",
+    "title": "Ingeniería en robótica y automatización, del prototipo a la producción.",
+    "lead": "Diseñamos y construimos robots, celdas automatizadas y la electrónica y el software que los hacen funcionar, para fabricantes y operadores de cualquier país.",
+    "ctaPrimary": "Hablar con un ingeniero",
+    "ctaSecondary": "Ver proyectos",
+    "media": "VIDEO 01 — Robot o celda de producción en operación, loop de 10–15 s, sin audio, luz de estudio o industrial"
+  },
+  "positioning": {
+    "eyebrow": "Por qué Velkin",
+    "statement": "Un solo equipo de ingeniería para mecánica, electrónica, firmware y software. Un contrato, un responsable, un cronograma.",
+    "points": [
+      { "title": "Todo el stack en casa", "body": "Estructura, actuación, PCB, firmware, ROS 2 e IA los diseña el mismo equipo, así las interfaces se resuelven antes de convertirse en problemas." },
+      { "title": "Resultados medibles", "body": "Cada proyecto empieza con metas acordadas —tiempo de ciclo, precisión, disponibilidad, costo— y termina con un informe contra ellas." },
+      { "title": "Pensado para trabajo internacional", "body": "Revisiones en tu zona horaria, código en tu repositorio, hardware documentado y envío puerta a puerta." }
+    ]
+  },
+  "servicesSection": {
+    "eyebrow": "Servicios",
+    "title": "Cinco disciplinas de ingeniería, entregadas como una.",
+    "viewAll": "Todos los servicios"
+  },
+  "industriesSection": {
+    "eyebrow": "Industrias",
+    "title": "Dónde operan nuestros sistemas.",
+    "viewAll": "Todas las industrias"
+  },
+  "featured": {
+    "eyebrow": "Caso destacado",
+    "viewCase": "Leer el caso de estudio",
+    "confidential": "Cliente bajo NDA"
+  },
+  "build": {
+    "eyebrow": "Cómo construimos",
+    "title": "Cada capa de la máquina, diseñada en conjunto.",
+    "lead": "Diseñamos estructura, actuación, electrónica y software en paralelo, con requisitos y planes de prueba compartidos.",
+    "layers": {
+      "structure": { "title": "Estructura", "body": "Cinemática, FEA y diseño para manufactura en piezas mecanizadas, impresas y de lámina.", "spec": "Aluminio 6061-T6 · factor de seguridad FEA ≥ 2" },
+      "actuation": { "title": "Actuadores", "body": "Selección de motores y reductores a partir del presupuesto de torque, con modelos térmicos para servicio continuo.", "spec": "BLDC · FOC · armónico / planetario" },
+      "electronics": { "title": "Electrónica y PCB", "body": "Tarjetas controladoras, etapas de potencia e interfaces de sensores diseñadas según prácticas IPC.", "spec": "6 capas · CAN-FD · STO" },
+      "software": { "title": "Software", "body": "Firmware de tiempo real, arquitectura ROS 2, percepción y planificación, con CI y pruebas.", "spec": "C++ · Rust · ROS 2 · IA embebida" }
+    }
+  },
+  "process": {
+    "eyebrow": "Proceso",
+    "title": "Un proceso de entrega pensado para hardware.",
+    "steps": [
+      { "t": "Descubrimiento", "b": "Requisitos, restricciones y presupuesto. Una llamada de factibilidad en días.", "d": "1–2 semanas" },
+      { "t": "Ingeniería", "b": "Arquitectura, CAD, esquemáticos y lista de materiales costeada.", "d": "3–8 semanas" },
+      { "t": "Prototipo", "b": "Hardware funcional fabricado y ensamblado en nuestro taller.", "d": "2–6 semanas" },
+      { "t": "Validación", "b": "Planes de prueba, ensayos de resistencia y verificaciones previas de seguridad y normativa.", "d": "2–4 semanas" },
+      { "t": "Producción", "b": "DFM, proveedores, documentación de ensamble y lotes piloto.", "d": "Según volumen" },
+      { "t": "Soporte", "b": "Diagnóstico remoto, actualizaciones de firmware, repuestos y capacitación.", "d": "Continuo" }
+    ]
+  },
+  "stats": {
+    "eyebrow": "En cifras",
+    "projects": "Proyectos entregados",
+    "countries": "Países",
+    "years": "Años de experiencia acumulada en ingeniería",
+    "robots": "Robots desplegados"
+  },
+  "clients": { "title": "Clientes y aliados" },
+  "testimonials": { "eyebrow": "Clientes", "title": "Lo que dicen nuestros clientes" },
+  "standards": {
+    "eyebrow": "Estándares",
+    "title": "Diseñamos conforme a estándares reconocidos.",
+    "lead": "Nuestras prácticas de ingeniería siguen estos estándares. Las certificaciones formales se publican abajo a medida que se obtienen.",
+    "items": [
+      { "code": "IPC-2221", "name": "Norma genérica de diseño de circuitos impresos" },
+      { "code": "IPC-A-610", "name": "Aceptabilidad de ensambles electrónicos (mano de obra clase 2)" },
+      { "code": "ISO 10218", "name": "Requisitos de seguridad para robots industriales — enfoque de diseño" },
+      { "code": "ISO 13849", "name": "Partes de los sistemas de mando relativas a la seguridad — enfoque de diseño" },
+      { "code": "IEC 60204-1", "name": "Equipo eléctrico de las máquinas — enfoque de diseño" }
+    ],
+    "certifications": "Certificaciones",
+    "validUntil": "Vigente hasta",
+    "view": "Ver certificado"
+  },
+  "cta": {
+    "title": "Cuéntanos qué debe hacer el sistema.",
+    "lead": "Un ingeniero revisa cada solicitud y responde en un día hábil, en tu idioma y tu zona horaria.",
+    "primary": "Solicitar propuesta",
+    "secondary": "Escríbenos"
+  },
+  "footer": {
+    "about": "Ingeniería en robótica, automatización y electrónica, del prototipo a la producción.",
+    "company": "Empresa",
+    "resources": "Recursos",
+    "contact": "Contacto",
+    "privacy": "Privacidad",
+    "terms": "Términos",
+    "cookies": "Configurar cookies",
+    "doNotSell": "No vender ni compartir mi información personal",
+    "rights": "Todos los derechos reservados."
+  },
+  "cookies": {
+    "title": "Configuración de privacidad",
+    "body": "Usamos almacenamiento estrictamente necesario para que el sitio funcione. Con tu permiso también usamos analítica sin cookies y respetuosa con la privacidad para saber qué páginas resultan útiles. Nunca vendemos tus datos.",
+    "accept": "Aceptar analítica",
+    "reject": "Solo necesarias",
+    "customize": "Personalizar",
+    "save": "Guardar",
+    "necessary": "Estrictamente necesarias",
+    "necessaryBody": "Preferencia de idioma, seguridad y esta elección. Siempre activas.",
+    "analytics": "Analítica",
+    "analyticsBody": "Estadísticas de páginas agregadas y anónimas (Umami). Sin rastreo entre sitios.",
+    "gpc": "Se detectó Global Privacy Control: la analítica queda desactivada."
+  },
+  "servicesPage": {
+    "title": "Servicios",
+    "lead": "Servicios de ingeniería en todo el stack de un robot, por separado o como un proyecto integrado.",
+    "capabilities": "Capacidades",
+    "deliverables": "Entregables",
+    "technologies": "Tecnologías",
+    "related": "Casos relacionados",
+    "start": "Conversar sobre tu proyecto"
+  },
+  "industriesPage": {
+    "title": "Industrias",
+    "lead": "Cada sector tiene sus propias restricciones. Estos son los problemas que resolvemos con más frecuencia.",
+    "problems": "Problemas típicos",
+    "solutions": "Cómo los resolvemos",
+    "related": "Casos en esta industria"
+  },
+  "projectsPage": {
+    "title": "Casos de estudio",
+    "lead": "Robots, celdas automatizadas y electrónica que llevamos de los requisitos a la operación.",
+    "industry": "Industria",
+    "service": "Servicio",
+    "region": "Región",
+    "all": "Todas",
+    "empty": "Ningún caso coincide con estos filtros.",
+    "count": "{count, plural, one {# caso} other {# casos}}",
+    "client": "Cliente",
+    "country": "País",
+    "year": "Año",
+    "challenge": "Reto",
+    "solution": "Solución",
+    "results": "Resultados",
+    "specs": "Especificaciones",
+    "gallery": "Galería",
+    "related": "Casos relacionados",
+    "all_cases": "Todos los casos"
+  },
+  "about": {
+    "eyebrow": "Nosotros",
+    "title": "Una empresa de ingeniería hecha para entregar hardware.",
+    "lead": "Velkin reúne ingeniería mecánica, eléctrica, de firmware y de software en un solo equipo, para que robots y sistemas automatizados pasen de la idea a la producción sin quedar entre proveedores.",
+    "mission": "Misión",
+    "missionBody": "Hacer prácticas las máquinas capaces: confiables en la planta, simples de mantener y diseñadas para las personas que trabajan a su lado.",
+    "team": "Equipo",
+    "facilities": "Instalaciones",
+    "facilitiesBody": "Nuestro taller reúne una granja de impresión 3D, CNC y corte láser, un banco de electrónica, bancos de prueba de motores y un área de integración ROS 2 donde cada prototipo funciona antes de enviarse.",
+    "facilitiesPhotos": ["FOTO — Vista general del taller, plano amplio, personas trabajando", "FOTO — Banco de electrónica, retrabajo de PCB bajo lupa", "FOTO — Banco de prueba de motores con instrumentación"],
+    "international": {
+      "title": "Cómo trabajamos con clientes internacionales",
+      "items": [
+        { "t": "Comunicación", "b": "Un ingeniero dedicado, revisiones semanales por video en tu zona horaria y acceso compartido a CAD, esquemáticos y resultados de pruebas." },
+        { "t": "Envíos", "b": "Envío internacional puerta a puerta con documentación de exportación, y puesta en marcha en sitio cuando se requiere." },
+        { "t": "Soporte", "b": "Diagnóstico remoto, actualizaciones de firmware a distancia, kits de repuestos y capacitación de operarios." },
+        { "t": "Confidencialidad", "b": "NDA mutuo antes de la primera conversación técnica. Tus diseños y datos siguen siendo tuyos." }
+      ]
+    }
+  },
+  "resources": {
+    "title": "Recursos",
+    "lead": "Artículos técnicos, white papers y fichas técnicas de nuestro equipo de ingeniería.",
+    "articles": "Artículos",
+    "whitepapers": "White papers",
+    "datasheets": "Fichas técnicas",
+    "download": "Descargar PDF",
+    "pages": "{n} páginas",
+    "minutes": "{n} min de lectura",
+    "back": "Todos los recursos",
+    "emptyDocs": "Aquí publicaremos white papers y fichas técnicas.",
+    "gate": {
+      "title": "Descargar el documento",
+      "body": "Déjanos tus datos y te avisaremos cuando publiquemos material relacionado. Los campos opcionales pueden quedar vacíos.",
+      "email": "Email de trabajo",
+      "name": "Nombre",
+      "company": "Empresa",
+      "consent": "Acepto recibir actualizaciones técnicas ocasionales de Velkin. Puedo darme de baja en cualquier momento.",
+      "submit": "Descargar",
+      "skip": "Descargar sin suscribirme",
+      "error": "No se pudo preparar la descarga. Inténtalo de nuevo."
+    }
+  },
+  "contact": {
+    "title": "Solicitar propuesta",
+    "lead": "Cuéntanos sobre el proyecto. Un ingeniero te responderá en un día hábil.",
+    "sections": { "you": "Tus datos", "project": "Proyecto", "files": "Archivos y llamada" },
+    "fields": {
+      "name": "Nombre completo",
+      "company": "Empresa",
+      "jobTitle": "Cargo",
+      "country": "País",
+      "email": "Email de trabajo",
+      "phone": "Teléfono (opcional)",
+      "projectType": "Tipo de proyecto",
+      "timeline": "Plazo",
+      "budget": "Rango de presupuesto",
+      "currency": "Moneda",
+      "description": "Descripción del proyecto",
+      "descriptionHint": "¿Qué debe hacer el sistema? Incluye carga, entorno, cantidades y fechas límite que conozcas.",
+      "files": "Adjuntos (opcional)",
+      "filesHint": "Hasta 5 archivos de 50 MB: STEP, STP, IGES, STL, DXF, PDF, ZIP o imágenes.",
+      "browse": "Elegir archivos",
+      "call": "Agendar una videollamada (opcional)",
+      "callHint": "Horarios mostrados en tu zona horaria: {tz}",
+      "noCall": "No necesito llamada",
+      "consent": "Acepto el tratamiento de mis datos para responder esta solicitud, según la Política de Privacidad.",
+      "other": "Otro"
+    },
+    "budgets": { "lt25": "Menos de {a}", "25-100": "{a} – {b}", "100-500": "{a} – {b}", "gt500": "Más de {a}", "unsure": "Aún no definido" },
+    "timelines": { "asap": "Lo antes posible", "1-3m": "1–3 meses", "3-6m": "3–6 meses", "6m+": "Más de 6 meses", "flexible": "Flexible" },
+    "submit": "Enviar solicitud",
+    "sending": "Enviando…",
+    "errors": {
+      "required": "Obligatorio",
+      "email": "Ingresa un email válido",
+      "min": "Agrega un poco más de detalle",
+      "consent": "Se requiere tu consentimiento",
+      "file": "Tipo o tamaño de archivo no permitido",
+      "server": "No se pudo enviar la solicitud. Inténtalo de nuevo o escríbenos directamente.",
+      "captcha": "Completa la verificación de seguridad"
+    },
+    "success": {
+      "title": "Solicitud recibida",
+      "body": "Referencia {reference}. Te enviamos una confirmación al correo y responderemos en un día hábil.",
+      "again": "Enviar otra solicitud"
+    },
+    "direct": "Contacto directo",
+    "email": "Email",
+    "whatsapp": "WhatsApp",
+    "linkedin": "LinkedIn",
+    "offline": "El formulario de propuestas aún no está conectado. Escríbenos por email y responderemos pronto."
+  },
+  "legal": {
+    "privacyTitle": "Política de privacidad",
+    "termsTitle": "Términos de uso",
+    "lastUpdated": "Última actualización",
+    "privacy": [
+      "Responsable: Velkin. Contacto: privacy@velkin.com.",
+      "Qué recopilamos: la información que envías en nuestros formularios (nombre, cargo, email, empresa, país, detalles del proyecto y archivos), registros técnicos básicos necesarios para la seguridad y, solo con tu consentimiento, analítica anónima y agregada.",
+      "Finalidades: responder tu solicitud y preparar propuestas (medidas precontractuales), proteger nuestros servicios (interés legítimo), enviarte actualizaciones técnicas si lo aceptas y mejorar el sitio (consentimiento).",
+      "Conservación: las solicitudes se conservan hasta 24 meses después de la última interacción, salvo que un contrato exija más. Puedes pedir su eliminación en cualquier momento.",
+      "Encargados: hosting (Amazon Web Services, Vercel), CDN y seguridad (Cloudflare), envío de correo (Resend o Amazon SES). Las transferencias internacionales se amparan en Cláusulas Contractuales Tipo u otras garantías equivalentes.",
+      "Tus derechos: acceso, rectificación, supresión, portabilidad, oposición y retiro del consentimiento según el RGPD, UK GDPR, CCPA/CPRA, LGPD, la Ley 1581 de 2012 de Colombia y normas similares. Respetamos las señales de Global Privacy Control y no vendemos ni compartimos información personal para publicidad comportamental.",
+      "Para ejercer tus derechos escribe a privacy@velkin.com. También puedes presentar una reclamación ante tu autoridad local de protección de datos."
+    ],
+    "terms": [
+      "Velkin ofrece este sitio para informar sobre sus servicios. El contenido puede cambiar sin previo aviso.",
+      "Los casos, especificaciones y cifras son ilustrativos y no constituyen una oferta vinculante. Las propuestas solo obligan mediante un acuerdo firmado.",
+      "Las marcas, diseños y contenidos de este sitio pertenecen a Velkin o a sus respectivos titulares y no pueden reutilizarse sin permiso.",
+      "Los archivos que subas siguen siendo tuyos; solo los usamos para evaluar tu solicitud y los tratamos como confidenciales.",
+      "En la medida que la ley lo permita, el sitio se ofrece tal cual, sin garantías."
+    ],
+    "review": "Texto plantilla: haz que un abogado lo revise para cada jurisdicción donde operes."
+  },
+  "notFound": { "title": "Página no encontrada", "body": "La página que buscas no existe o cambió de dirección.", "home": "Volver al inicio" },
+  "regions": { "AF": "África", "AS": "Asia", "EU": "Europa", "NA": "Norteamérica", "SA": "Sudamérica", "OC": "Oceanía", "AN": "Antártida" },
+  "types": { "humanoid": "Humanoide", "quadruped": "Cuadrúpedo", "arm": "Brazo / cobot", "mobile": "Robot móvil", "telepresence": "Telepresencia", "cell": "Celda de automatización", "electronics": "Electrónica" }
+}

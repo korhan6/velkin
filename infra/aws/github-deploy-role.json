@@ -1,0 +1,30 @@
+{
+  "TrustPolicy": {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Principal": { "Federated": "arn:aws:iam::ACCOUNT_ID:oidc-provider/token.actions.githubusercontent.com" },
+        "Action": "sts:AssumeRoleWithWebIdentity",
+        "Condition": {
+          "StringEquals": { "token.actions.githubusercontent.com:aud": "sts.amazonaws.com" },
+          "StringLike": { "token.actions.githubusercontent.com:sub": "repo:YOUR_ORG/velkin:environment:production" }
+        }
+      }
+    ]
+  },
+  "PermissionsPolicy": {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Action": ["ssm:SendCommand"],
+        "Resource": [
+          "arn:aws:ec2:us-east-1:ACCOUNT_ID:instance/INSTANCE_ID",
+          "arn:aws:ssm:us-east-1::document/AWS-RunShellScript"
+        ]
+      },
+      { "Effect": "Allow", "Action": ["ssm:GetCommandInvocation", "ssm:ListCommandInvocations"], "Resource": "*" }
+    ]
+  }
+}

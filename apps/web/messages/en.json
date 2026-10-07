@@ -1,0 +1,290 @@
+{
+  "meta": {
+    "title": "Velkin — Robotics and automation engineering",
+    "description": "Velkin designs and builds robots, automated cells and the electronics and software behind them — from prototype to series production, for industrial clients worldwide."
+  },
+  "nav": {
+    "services": "Services",
+    "industries": "Industries",
+    "projects": "Projects",
+    "about": "About",
+    "resources": "Resources",
+    "contact": "Contact",
+    "cta": "Talk to an engineer",
+    "menu": "Menu",
+    "close": "Close",
+    "skip": "Skip to content",
+    "language": "Language"
+  },
+  "common": {
+    "learnMore": "Learn more",
+    "viewAll": "View all",
+    "back": "Back",
+    "demo": "Sample content — replace it from the admin panel before launch.",
+    "photo": "Photo",
+    "video": "Video"
+  },
+  "hero": {
+    "eyebrow": "Motion Engineered",
+    "title": "Robotics and automation engineering, from prototype to production.",
+    "lead": "We design and build robots, automated cells and the electronics and software that run them — for manufacturers and operators in any country.",
+    "ctaPrimary": "Talk to an engineer",
+    "ctaSecondary": "View projects",
+    "media": "VIDEO 01 — Robot or production cell in operation, 10–15 s loop, no audio, studio or industrial light"
+  },
+  "positioning": {
+    "eyebrow": "Why Velkin",
+    "statement": "One engineering team for mechanics, electronics, firmware and software. One contract, one point of accountability, one schedule.",
+    "points": [
+      { "title": "Full stack in-house", "body": "Structure, actuation, PCBs, firmware, ROS 2 and AI are designed by the same team, so interfaces are solved before they become problems." },
+      { "title": "Measured outcomes", "body": "Every project starts with agreed targets — cycle time, precision, uptime, cost — and ends with a report against them." },
+      { "title": "Built for international work", "body": "Reviews in your time zone, code in your repository, documented hardware and door-to-door shipping." }
+    ]
+  },
+  "servicesSection": {
+    "eyebrow": "Services",
+    "title": "Five engineering disciplines, delivered as one.",
+    "viewAll": "All services"
+  },
+  "industriesSection": {
+    "eyebrow": "Industries",
+    "title": "Where our systems operate.",
+    "viewAll": "All industries"
+  },
+  "featured": {
+    "eyebrow": "Featured case study",
+    "viewCase": "Read the case study",
+    "confidential": "Client under NDA"
+  },
+  "build": {
+    "eyebrow": "How we build",
+    "title": "Every layer of the machine, engineered together.",
+    "lead": "We design structure, actuation, electronics and software in parallel, with shared requirements and test plans.",
+    "layers": {
+      "structure": { "title": "Structure", "body": "Kinematics, FEA and design for manufacturing in machined, printed and sheet-metal parts.", "spec": "Aluminium 6061-T6 · FEA safety factor ≥ 2" },
+      "actuation": { "title": "Actuators", "body": "Motor and gearbox selection from a torque budget, with thermal models for continuous duty.", "spec": "BLDC · FOC · harmonic / planetary" },
+      "electronics": { "title": "Electronics and PCB", "body": "Controller boards, power stages and sensor interfaces designed to IPC practices.", "spec": "6-layer · CAN-FD · STO" },
+      "software": { "title": "Software", "body": "Real-time firmware, ROS 2 architecture, perception and planning — with CI and tests.", "spec": "C++ · Rust · ROS 2 · on-device AI" }
+    }
+  },
+  "process": {
+    "eyebrow": "Process",
+    "title": "A delivery process designed for hardware.",
+    "steps": [
+      { "t": "Discovery", "b": "Requirements, constraints and budget. A feasibility call within days.", "d": "1–2 weeks" },
+      { "t": "Engineering", "b": "Architecture, CAD, schematics and a costed bill of materials.", "d": "3–8 weeks" },
+      { "t": "Prototype", "b": "Functional hardware built and assembled in our workshop.", "d": "2–6 weeks" },
+      { "t": "Validation", "b": "Test plans, endurance runs and safety and compliance pre-checks.", "d": "2–4 weeks" },
+      { "t": "Production", "b": "DFM, supplier sourcing, assembly documentation and pilot batches.", "d": "Per volume" },
+      { "t": "Support", "b": "Remote diagnostics, firmware updates, spare parts and training.", "d": "Ongoing" }
+    ]
+  },
+  "stats": {
+    "eyebrow": "In numbers",
+    "projects": "Projects delivered",
+    "countries": "Countries",
+    "years": "Years of combined engineering experience",
+    "robots": "Robots deployed"
+  },
+  "clients": { "title": "Clients and partners" },
+  "testimonials": { "eyebrow": "Clients", "title": "What our clients say" },
+  "standards": {
+    "eyebrow": "Standards",
+    "title": "We design to recognised standards.",
+    "lead": "Our engineering practices follow these standards. Formal certifications are listed below as they are obtained.",
+    "items": [
+      { "code": "IPC-2221", "name": "Generic standard on printed board design" },
+      { "code": "IPC-A-610", "name": "Acceptability of electronic assemblies (Class 2 workmanship)" },
+      { "code": "ISO 10218", "name": "Safety requirements for industrial robots — design approach" },
+      { "code": "ISO 13849", "name": "Safety-related parts of control systems — design approach" },
+      { "code": "IEC 60204-1", "name": "Electrical equipment of machines — design approach" }
+    ],
+    "certifications": "Certifications",
+    "validUntil": "Valid until",
+    "view": "View certificate"
+  },
+  "cta": {
+    "title": "Tell us what the system needs to do.",
+    "lead": "An engineer reviews every request and replies within one business day, in your language and time zone.",
+    "primary": "Request a proposal",
+    "secondary": "Email us"
+  },
+  "footer": {
+    "about": "Robotics, automation and electronics engineering, from prototype to production.",
+    "company": "Company",
+    "resources": "Resources",
+    "contact": "Contact",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "cookies": "Cookie settings",
+    "doNotSell": "Do not sell or share my personal information",
+    "rights": "All rights reserved."
+  },
+  "cookies": {
+    "title": "Privacy settings",
+    "body": "We use strictly necessary storage to run this site. With your permission we also use privacy-friendly, cookieless analytics to understand which pages are useful. We never sell your data.",
+    "accept": "Accept analytics",
+    "reject": "Necessary only",
+    "customize": "Customize",
+    "save": "Save",
+    "necessary": "Strictly necessary",
+    "necessaryBody": "Language preference, security and this choice. Always on.",
+    "analytics": "Analytics",
+    "analyticsBody": "Aggregated, anonymous page statistics (Umami). No cross-site tracking.",
+    "gpc": "Global Privacy Control detected — analytics remain off."
+  },
+  "servicesPage": {
+    "title": "Services",
+    "lead": "Engineering services across the full robot stack, available individually or as one integrated project.",
+    "capabilities": "Capabilities",
+    "deliverables": "Deliverables",
+    "technologies": "Technologies",
+    "related": "Related case studies",
+    "start": "Discuss your project"
+  },
+  "industriesPage": {
+    "title": "Industries",
+    "lead": "Each sector has its own constraints. These are the problems we solve most often.",
+    "problems": "Typical problems",
+    "solutions": "How we solve them",
+    "related": "Case studies in this industry"
+  },
+  "projectsPage": {
+    "title": "Case studies",
+    "lead": "Robots, automated cells and electronics we have taken from requirements to operation.",
+    "industry": "Industry",
+    "service": "Service",
+    "region": "Region",
+    "all": "All",
+    "empty": "No case studies match these filters.",
+    "count": "{count, plural, one {# case study} other {# case studies}}",
+    "client": "Client",
+    "country": "Country",
+    "year": "Year",
+    "challenge": "Challenge",
+    "solution": "Solution",
+    "results": "Results",
+    "specs": "Specifications",
+    "gallery": "Gallery",
+    "related": "Related case studies",
+    "all_cases": "All case studies"
+  },
+  "about": {
+    "eyebrow": "About",
+    "title": "An engineering company built to deliver hardware.",
+    "lead": "Velkin brings mechanical, electrical, firmware and software engineering into one team so robots and automated systems move from idea to production without falling between suppliers.",
+    "mission": "Mission",
+    "missionBody": "Make capable machines practical: reliable on the factory floor, simple to maintain and designed for the people who work alongside them.",
+    "team": "Team",
+    "facilities": "Facilities",
+    "facilitiesBody": "Our workshop combines a 3D printing farm, CNC and laser cutting, an electronics bench, motor test rigs and a ROS 2 integration area where every prototype runs before it ships.",
+    "facilitiesPhotos": ["PHOTO — Workshop overview, wide shot, people at work", "PHOTO — Electronics bench, PCB rework under magnifier", "PHOTO — Motor test rig with instrumentation"],
+    "international": {
+      "title": "Working with international clients",
+      "items": [
+        { "t": "Communication", "b": "A dedicated engineer, weekly video reviews in your time zone and shared access to CAD, schematics and test results." },
+        { "t": "Shipping", "b": "Door-to-door international shipping with export documentation, and on-site commissioning when required." },
+        { "t": "Support", "b": "Remote diagnostics, over-the-air firmware updates, spare-parts kits and operator training." },
+        { "t": "Confidentiality", "b": "Mutual NDA before the first technical conversation. Your designs and data remain yours." }
+      ]
+    }
+  },
+  "resources": {
+    "title": "Resources",
+    "lead": "Technical articles, white papers and datasheets from our engineering team.",
+    "articles": "Articles",
+    "whitepapers": "White papers",
+    "datasheets": "Datasheets",
+    "download": "Download PDF",
+    "pages": "{n} pages",
+    "minutes": "{n} min read",
+    "back": "All resources",
+    "emptyDocs": "White papers and datasheets will be published here.",
+    "gate": {
+      "title": "Download the document",
+      "body": "Leave your details and we will send updates when we publish related material. Optional fields can stay empty.",
+      "email": "Work email",
+      "name": "Name",
+      "company": "Company",
+      "consent": "I agree to receive occasional technical updates from Velkin. I can unsubscribe at any time.",
+      "submit": "Download",
+      "skip": "Download without subscribing",
+      "error": "The download could not be prepared. Please try again."
+    }
+  },
+  "contact": {
+    "title": "Request a proposal",
+    "lead": "Tell us about the project. An engineer will reply within one business day.",
+    "sections": { "you": "Your details", "project": "Project", "files": "Files and call" },
+    "fields": {
+      "name": "Full name",
+      "company": "Company",
+      "jobTitle": "Job title",
+      "country": "Country",
+      "email": "Work email",
+      "phone": "Phone (optional)",
+      "projectType": "Project type",
+      "timeline": "Timeline",
+      "budget": "Budget range",
+      "currency": "Currency",
+      "description": "Project description",
+      "descriptionHint": "What should the system do? Include payload, environment, quantities and any deadlines you know.",
+      "files": "Attachments (optional)",
+      "filesHint": "Up to 5 files of 50 MB: STEP, STP, IGES, STL, DXF, PDF, ZIP or images.",
+      "browse": "Choose files",
+      "call": "Schedule a video call (optional)",
+      "callHint": "Times shown in your time zone: {tz}",
+      "noCall": "No call needed",
+      "consent": "I agree to the processing of my data to answer this request, as described in the Privacy Policy.",
+      "other": "Other"
+    },
+    "budgets": { "lt25": "Under {a}", "25-100": "{a} – {b}", "100-500": "{a} – {b}", "gt500": "Over {a}", "unsure": "Not defined yet" },
+    "timelines": { "asap": "As soon as possible", "1-3m": "1–3 months", "3-6m": "3–6 months", "6m+": "More than 6 months", "flexible": "Flexible" },
+    "submit": "Send request",
+    "sending": "Sending…",
+    "errors": {
+      "required": "Required",
+      "email": "Enter a valid email address",
+      "min": "Please add a little more detail",
+      "consent": "Consent is required",
+      "file": "File type or size not allowed",
+      "server": "The request could not be sent. Please try again or email us directly.",
+      "captcha": "Please complete the security check"
+    },
+    "success": {
+      "title": "Request received",
+      "body": "Reference {reference}. We have sent a confirmation to your email and will reply within one business day.",
+      "again": "Send another request"
+    },
+    "direct": "Direct contact",
+    "email": "Email",
+    "whatsapp": "WhatsApp",
+    "linkedin": "LinkedIn",
+    "offline": "The proposal form is not connected yet. Please email us and we will reply promptly."
+  },
+  "legal": {
+    "privacyTitle": "Privacy Policy",
+    "termsTitle": "Terms of Use",
+    "lastUpdated": "Last updated",
+    "privacy": [
+      "Controller: Velkin. Contact: privacy@velkin.com.",
+      "What we collect: information you submit in our forms (name, job title, email, company, country, project details and files), basic technical logs needed for security and, only with your consent, anonymous aggregated analytics.",
+      "Purposes: answering your request and preparing proposals (pre-contractual steps), securing our services (legitimate interest), sending technical updates when you opt in, and improving the site (consent).",
+      "Retention: requests are kept for up to 24 months after the last interaction unless a contract requires longer. You may request deletion at any time.",
+      "Processors: hosting (Amazon Web Services, Vercel), CDN and security (Cloudflare), email delivery (Resend or Amazon SES). International transfers rely on Standard Contractual Clauses or equivalent safeguards.",
+      "Your rights: access, rectification, erasure, portability, objection and withdrawal of consent under GDPR, UK GDPR, CCPA/CPRA, LGPD, Colombian Law 1581 of 2012 and similar laws. We honour Global Privacy Control signals and do not sell or share personal information for cross-context behavioural advertising.",
+      "To exercise your rights, write to privacy@velkin.com. You may also lodge a complaint with your local data protection authority."
+    ],
+    "terms": [
+      "This website is provided by Velkin to inform about its services. Content may change without notice.",
+      "Case studies, specifications and figures are illustrative and do not constitute a binding offer. Proposals become binding only through a signed agreement.",
+      "Trademarks, designs and content on this site belong to Velkin or their respective owners and may not be reused without permission.",
+      "Files you upload remain your property; we use them only to evaluate your request and treat them as confidential.",
+      "To the extent permitted by law, the site is provided as is, without warranties."
+    ],
+    "review": "Template text — have it reviewed by counsel for each jurisdiction where you operate."
+  },
+  "notFound": { "title": "Page not found", "body": "The page you are looking for does not exist or has moved.", "home": "Back to home" },
+  "regions": { "AF": "Africa", "AS": "Asia", "EU": "Europe", "NA": "North America", "SA": "South America", "OC": "Oceania", "AN": "Antarctica" },
+  "types": { "humanoid": "Humanoid", "quadruped": "Quadruped", "arm": "Arm / cobot", "mobile": "Mobile robot", "telepresence": "Telepresence", "cell": "Automation cell", "electronics": "Electronics" }
+}

@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-test:
+    runs-on: ubuntu-24.04
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env: { POSTGRES_USER: velkin_site, POSTGRES_PASSWORD: ci, POSTGRES_DB: velkin_site }
+        ports: ["5432:5432"]
+        options: --health-cmd "pg_isready -U velkin_site" --health-interval 5s --health-retries 10
+      redis:
+        image: redis:7-alpine
+        ports: ["6379:6379"]
+    env:
+      DATABASE_URL: postgresql://velkin_site:ci@localhost:5432/velkin_site?schema=public
+      REDIS_URL: redis://localhost:6379/0
+      JWT_ACCESS_SECRET: ci-secret-ci-secret-ci-secret-ci-secret
+      NEXT_TELEMETRY_DISABLED: 1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+      - name: Prisma generate + migrate
+        run: pnpm --filter @velkin/api exec prisma generate && pnpm --filter @velkin/api exec prisma migrate deploy
+      - run: pnpm typecheck
+      - run: pnpm --filter @velkin/api test
+      - run: pnpm --filter @velkin/api test:e2e
+      - run: pnpm build
+
+  lighthouse:
+    # Performance budget gate on the built site (mobile emulation)
+    needs: build-test
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @velkin/web build
+      - name: Lighthouse CI
+        run: |
+          pnpm --filter @velkin/web start &
+          npx -y wait-on http://localhost:3000/en
+          npx -y @lhci/cli@0.15.x autorun --config=./.github/lighthouserc.json

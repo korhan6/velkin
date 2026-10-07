@@ -1,0 +1,27 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ReadOwnSecrets",
+      "Effect": "Allow",
+      "Action": ["ssm:GetParametersByPath", "ssm:GetParameters", "ssm:GetParameter", "ssm:PutParameter"],
+      "Resource": "arn:aws:ssm:us-east-1:ACCOUNT_ID:parameter/velkin/*"
+    },
+    { "Sid": "DecryptSecrets", "Effect": "Allow", "Action": "kms:Decrypt", "Resource": "arn:aws:kms:us-east-1:ACCOUNT_ID:alias/aws/ssm" },
+    {
+      "Sid": "LeadAttachments",
+      "Effect": "Allow",
+      "Action": ["s3:PutObject", "s3:GetObject", "s3:DeleteObject"],
+      "Resource": ["arn:aws:s3:::velkin-leads/*", "arn:aws:s3:::velkin-media/*"]
+    },
+    { "Sid": "HeadObjects", "Effect": "Allow", "Action": "s3:ListBucket", "Resource": ["arn:aws:s3:::velkin-leads", "arn:aws:s3:::velkin-media"] },
+    { "Sid": "Backups", "Effect": "Allow", "Action": ["s3:PutObject"], "Resource": "arn:aws:s3:::velkin-backups-usw2/*" },
+    { "Sid": "Email", "Effect": "Allow", "Action": ["ses:SendEmail"], "Resource": "*" },
+    {
+      "Sid": "Logs",
+      "Effect": "Allow",
+      "Action": ["logs:CreateLogGroup", "logs:CreateLogStream", "logs:PutLogEvents", "logs:DescribeLogStreams"],
+      "Resource": "arn:aws:logs:us-east-1:ACCOUNT_ID:log-group:/velkin/*"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+# Project: privacy-friendly analytics (Umami) — analytics.<domain>. Cookieless, per-country views built in.
+x-logging: &logging
+  driver: awslogs
+  options:
+    awslogs-region: ${AWS_REGION:-us-east-1}
+    awslogs-group: /velkin/${HOSTNAME_TAG:-prod}
+    awslogs-create-group: "true"
+    tag: "{{.Name}}"
+
+services:
+  umami:
+    image: ghcr.io/umami-software/umami:postgresql-latest
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgresql://umami:${UMAMI_DB_PASSWORD}@postgres:5432/umami
+      APP_SECRET: ${UMAMI_APP_SECRET}
+      DISABLE_TELEMETRY: "1"
+      # Umami resolves country from Cloudflare's header — no GeoIP DB download needed
+      CLIENT_IP_HEADER: cf-connecting-ip
+    depends_on:
+      postgres: { condition: service_healthy }
+    networks: [edge, analytics]
+    deploy:
+      resources: { limits: { memory: 384m } }
+    logging: *logging
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=velkin-edge
+      - traefik.http.routers.umami.rule=Host(`analytics.${DOMAIN}`)
+      - traefik.http.routers.umami.entrypoints=websecure
+      - traefik.http.routers.umami.middlewares=secure-headers@file,compress@file
+      - traefik.http.services.umami.loadbalancer.server.port=3000
+
+  postgres:
+    networks: [analytics]
+
+networks:
+  analytics:
+    name: velkin-analytics

@@ -1,0 +1,10 @@
+[Unit]
+Description=Velkin PostgreSQL backup to S3
+After=docker.service
+Requires=docker.service
+
+[Service]
+Type=oneshot
+User=deploy
+WorkingDirectory=/opt/velkin/infra
+ExecStart=/opt/velkin/infra/scripts/backup.sh

@@ -1,0 +1,80 @@
+# Builds API + admin images (arm64 for Graviton), pushes to GHCR, then deploys to EC2 through
+# SSM Run Command (no SSH, no open port 22). AWS auth uses GitHub OIDC — no long-lived keys.
+name: Deploy backend
+
+on:
+  push:
+    branches: [main]
+    paths: ["apps/api/**", "apps/admin/**", "packages/**", "pnpm-lock.yaml", ".github/workflows/deploy-backend.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+  id-token: write
+
+concurrency: deploy-backend
+
+env:
+  REGISTRY: ghcr.io/${{ github.repository_owner }}
+
+jobs:
+  images:
+    runs-on: ubuntu-24.04-arm # native arm64 runner; use ubuntu-24.04 + QEMU if unavailable for your plan
+    strategy:
+      matrix:
+        include:
+          - name: velkin-api
+            dockerfile: apps/api/Dockerfile
+          - name: velkin-admin
+            dockerfile: apps/admin/Dockerfile
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/login-action@v3
+        with: { registry: ghcr.io, username: ${{ github.actor }}, password: ${{ secrets.GITHUB_TOKEN }} }
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ${{ matrix.dockerfile }}
+          platforms: linux/arm64
+          push: true
+          build-args: |
+            NEXT_PUBLIC_API_URL=https://api.${{ vars.DOMAIN }}
+            NEXT_PUBLIC_ANALYTICS_URL=https://analytics.${{ vars.DOMAIN }}
+            NEXT_PUBLIC_LOCALES=${{ vars.LOCALES || 'en,es' }}
+          tags: |
+            ${{ env.REGISTRY }}/${{ matrix.name }}:${{ github.sha }}
+            ${{ env.REGISTRY }}/${{ matrix.name }}:latest
+          cache-from: type=gha,scope=${{ matrix.name }}
+          cache-to: type=gha,mode=max,scope=${{ matrix.name }}
+
+  deploy:
+    needs: images
+    runs-on: ubuntu-24.04
+    environment: production
+    steps:
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: ${{ vars.AWS_REGION || 'us-east-1' }}
+      - name: Roll out via SSM
+        run: |
+          set -euo pipefail
+          SHA=${{ github.sha }}
+          CMD_ID=$(aws ssm send-command \
+            --instance-ids "${{ secrets.EC2_INSTANCE_ID }}" \
+            --document-name "AWS-RunShellScript" \
+            --comment "deploy $SHA" \
+            --parameters "commands=[\"sudo -u deploy bash -lc 'cd /opt/velkin && git fetch --quiet origin main && git reset --hard origin/main && infra/scripts/deploy.sh site-api $SHA --migrate && infra/scripts/deploy.sh site-admin $SHA'\"]" \
+            --query 'Command.CommandId' --output text)
+          echo "SSM command: $CMD_ID"
+          aws ssm wait command-executed --command-id "$CMD_ID" --instance-id "${{ secrets.EC2_INSTANCE_ID }}" || true
+          aws ssm get-command-invocation --command-id "$CMD_ID" --instance-id "${{ secrets.EC2_INSTANCE_ID }}" \
+            --query '{Status:Status,Out:StandardOutputContent,Err:StandardErrorContent}' --output json
+          STATUS=$(aws ssm get-command-invocation --command-id "$CMD_ID" --instance-id "${{ secrets.EC2_INSTANCE_ID }}" --query Status --output text)
+          test "$STATUS" = "Success"
+      - name: Smoke test through Cloudflare
+        run: |
+          curl -fsS https://api.${{ vars.DOMAIN }}/health
+          curl -fsS -o /dev/null https://admin.${{ vars.DOMAIN }}/login

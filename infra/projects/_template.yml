@@ -1,0 +1,38 @@
+# TEMPLATE — new Velkin project backend at <name>.<domain>
+# 1) cp projects/_template.yml projects/<name>.yml and replace every "myproj"
+# 2) Append ":projects/<name>.yml" to COMPOSE_FILE in infra/.env
+# 3) ./scripts/create-project-db.sh myproj   (creates database + role, stores password in SSM)
+# 4) Put secrets in SSM under /velkin/myproj/ (scripts/fetch-secrets.sh renders env/myproj.env)
+# 5) docker compose up -d myproj-api        (DNS: wildcard already covers it)
+x-logging: &logging
+  driver: awslogs
+  options:
+    awslogs-region: ${AWS_REGION:-us-east-1}
+    awslogs-group: /velkin/${HOSTNAME_TAG:-prod}
+    awslogs-create-group: "true"
+    tag: "{{.Name}}"
+
+services:
+  myproj-api:
+    image: ${REGISTRY:-ghcr.io/velkin}/myproj-api:${MYPROJ_TAG:-latest}
+    restart: unless-stopped
+    env_file: [./env/myproj.env]
+    networks: [edge, myproj]
+    deploy:
+      resources: { limits: { memory: 512m } }
+    logging: *logging
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=velkin-edge
+      - traefik.http.routers.myproj.rule=Host(`myproj.${DOMAIN}`)
+      - traefik.http.routers.myproj.entrypoints=websecure
+      - traefik.http.routers.myproj.middlewares=secure-headers@file,compress@file
+      - traefik.http.services.myproj.loadbalancer.server.port=8080
+      - traefik.http.services.myproj.loadbalancer.healthcheck.path=/health
+
+  postgres:
+    networks: [myproj]
+
+networks:
+  myproj:
+    name: velkin-myproj

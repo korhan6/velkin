@@ -1,0 +1,263 @@
+/* Tokens mirror packages/ui/src/tokens.css (corporate light theme, accent = azul industrial #1F3FA6) */
+:root {
+  --bg: 250 250 248;
+  --surface: 255 255 255;
+  --ink: 17 17 17;
+  --ink-2: 61 61 58;
+  --ink-3: 107 107 102;
+  --line: 230 229 225;
+  --line-2: 212 211 206;
+  --placeholder: 236 235 231;
+  --graphite: 20 20 20;
+  --graphite-2: 30 30 29;
+  --on-graphite: 237 237 234;
+  --on-graphite-2: 154 154 149;
+  --accent: 31 63 166;
+  --accent-hover: 24 51 138;
+  --accent-on-dark: 143 166 255;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --header-h: 72px;
+}
+
+/* Metric-matched fallback so the swap to Inter causes ~no layout shift (CLS) */
+@font-face {
+  font-family: 'Inter Fallback';
+  src: local('Arial');
+  size-adjust: 107.12%;
+  ascent-override: 90.44%;
+  descent-override: 22.52%;
+  line-gap-override: 0%;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    background: rgb(var(--bg));
+    color: rgb(var(--ink));
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-padding-top: calc(var(--header-h) + 16px);
+  }
+  body {
+    @apply font-sans text-body;
+    font-optical-sizing: auto;
+    font-feature-settings: 'ss01', 'cv11';
+    min-height: 100dvh;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  ::selection {
+    background: rgb(var(--accent) / 0.16);
+  }
+  :focus-visible {
+    outline: 2px solid rgb(var(--accent));
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  .on-dark :focus-visible {
+    outline-color: rgb(var(--accent-on-dark));
+  }
+  .on-dark {
+    --logo-cutout: rgb(var(--graphite));
+  }
+}
+
+@layer components {
+  .frame {
+    @apply mx-auto w-full max-w-frame px-5 sm:px-8 lg:px-12;
+  }
+  .grid-12 {
+    @apply grid grid-cols-4 gap-x-5 sm:grid-cols-8 sm:gap-x-6 lg:grid-cols-12 lg:gap-x-8;
+  }
+  .section {
+    @apply py-20 md:py-28 lg:py-32;
+  }
+  .eyebrow {
+    @apply text-[13px] font-medium uppercase tracking-[0.08em] text-ink-3;
+  }
+  .on-dark .eyebrow {
+    @apply text-on-graphite-2;
+  }
+  .spec {
+    @apply font-mono text-[12.5px] leading-5;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex h-12 items-center justify-center gap-2 rounded-md px-6 text-[15px] font-medium transition-colors duration-200 ease-precise;
+  }
+  .btn-primary {
+    @apply btn bg-accent text-white hover:bg-accent-hover;
+  }
+  .btn-secondary {
+    @apply btn border border-line-2 bg-surface text-ink hover:border-ink;
+  }
+  .on-dark .btn-secondary {
+    @apply border-white/25 bg-transparent text-on-graphite hover:border-white;
+  }
+
+  /* Animated underline links */
+  .link {
+    @apply relative inline-flex items-center gap-1.5 font-medium text-accent;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 300ms var(--ease);
+  }
+  .link:hover,
+  .link:focus-visible {
+    background-size: 100% 1px;
+  }
+  .on-dark .link {
+    @apply text-accent-dark;
+  }
+  .nav-link {
+    @apply relative text-[15px] text-ink-2 transition-colors hover:text-ink;
+  }
+  .nav-link::after {
+    content: '';
+    @apply absolute -bottom-1 start-0 h-px w-full origin-left scale-x-0 bg-ink transition-transform duration-300 ease-precise;
+  }
+  .nav-link:hover::after,
+  .nav-link[aria-current='page']::after {
+    @apply scale-x-100;
+  }
+
+  /* Image hover zoom (2–3 %) */
+  .zoom img,
+  .zoom video,
+  .zoom .media-fill {
+    transition: transform 700ms var(--ease);
+  }
+  .zoom:hover img,
+  .zoom:hover video,
+  .zoom:hover .media-fill {
+    transform: scale(1.025);
+  }
+
+  .card {
+    @apply rounded-lg border border-line bg-surface;
+  }
+
+  /* Markdown bodies */
+  .prose-vk {
+    @apply max-w-prose text-ink-2;
+  }
+  .prose-vk h2 {
+    @apply mb-4 mt-12 text-display-sm text-ink;
+  }
+  .prose-vk h3 {
+    @apply mb-3 mt-8 text-xl font-semibold text-ink;
+  }
+  .prose-vk p {
+    @apply mb-5 text-lead;
+  }
+  .prose-vk ul {
+    @apply mb-6 list-disc space-y-2 ps-5 marker:text-ink-3;
+  }
+  .prose-vk ol {
+    @apply mb-6 list-decimal space-y-2 ps-5;
+  }
+  .prose-vk a {
+    @apply text-accent underline underline-offset-4;
+  }
+  .prose-vk code {
+    @apply rounded bg-placeholder px-1.5 py-0.5 font-mono text-[0.9em] text-ink;
+  }
+  .prose-vk pre {
+    @apply mb-6 overflow-x-auto rounded-md border border-line bg-surface p-4 font-mono text-sm;
+  }
+}
+
+html.vk-consented .consent-banner {
+  display: none;
+}
+
+/* ───── Motion: precise, short, quiet ───── */
+/* Visible by default (never delays LCP). RevealObserver adds .is-pending only to elements that start
+   below the fold, then removes it when they enter the viewport — the transition plays once. */
+.reveal,
+.reveal-mask,
+.reveal-x {
+  transition-delay: var(--d, 0ms);
+}
+.reveal {
+  transition-property: opacity, transform;
+  transition-duration: 500ms;
+  transition-timing-function: var(--ease);
+}
+.reveal.is-pending {
+  opacity: 0;
+  transform: translate3d(0, 12px, 0);
+}
+.reveal-mask {
+  transition: clip-path 900ms var(--ease);
+  transition-delay: var(--d, 0ms);
+}
+.reveal-mask.is-pending {
+  clip-path: inset(0 0 100% 0);
+}
+.reveal-x {
+  transform-origin: left;
+  transition: transform 1000ms var(--ease) 200ms;
+}
+[dir='rtl'] .reveal-x {
+  transform-origin: right;
+}
+.reveal-x.is-pending {
+  transform: scaleX(0);
+}
+
+/* Header logo: one discreet articulation on load */
+.vk-link-l {
+  animation: vk-art-l 700ms var(--ease) 150ms both;
+}
+.vk-link-r {
+  animation: vk-art-r 700ms var(--ease) 150ms both;
+}
+@keyframes vk-art-l {
+  from { transform: rotate(-12deg); }
+  to { transform: rotate(-24deg); }
+}
+@keyframes vk-art-r {
+  from { transform: rotate(12deg); }
+  to { transform: rotate(24deg); }
+}
+
+/* Page crossfade */
+.page-fade {
+  animation: page-fade 200ms ease-out both;
+}
+@keyframes page-fade {
+  from { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal.is-pending,
+  .reveal-mask.is-pending,
+  .reveal-x.is-pending {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+}
