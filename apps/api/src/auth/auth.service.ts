@@ -100,7 +100,7 @@ export class AuthService {
     if (u.totpEnabled) throw new BadRequestException('2FA already enabled');
     const secret = authenticator.generateSecret();
     await this.prisma.user.update({ where: { id: userId }, data: { totpSecret: secret } });
-    const otpauth = authenticator.keyuri(u.email, 'Velkin Admin', secret);
+    const otpauth = authenticator.keyuri(u.email, 'Velkine Admin', secret);
     return { otpauth, qr: await QRCode.toDataURL(otpauth), secret };
   }
 

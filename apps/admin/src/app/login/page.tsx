@@ -41,7 +41,7 @@ export default function LoginPage() {
         <div className="flex items-center gap-3">
           <LogoMark className="h-9 w-9" />
           <div>
-            <p className="font-mono text-xs uppercase tracking-[0.25em]">Velkin</p>
+            <p className="font-mono text-xs uppercase tracking-[0.25em]">Velkine</p>
             <p className="font-mono text-[10px] uppercase tracking-widest text-graphite-400">Admin console</p>
           </div>
         </div>

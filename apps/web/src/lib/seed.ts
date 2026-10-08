@@ -284,7 +284,7 @@ const posts: (Omit<Post, 'title' | 'excerpt' | 'body'> & { t: L<Pick<Post, 'titl
     slug: 'sizing-actuators-for-legged-robots',
     tags: ['Actuation'],
     publishedAt: '2026-09-15T00:00:00.000Z',
-    authorName: 'Velkin Engineering',
+    authorName: 'Velkine Engineering',
     readingMinutes: 6,
     coverImage: null,
     t: {
@@ -296,7 +296,7 @@ const posts: (Omit<Post, 'title' | 'excerpt' | 'body'> & { t: L<Pick<Post, 'titl
     slug: 'ros2-architecture-for-small-fleets',
     tags: ['Software'],
     publishedAt: '2026-08-20T00:00:00.000Z',
-    authorName: 'Velkin Engineering',
+    authorName: 'Velkine Engineering',
     readingMinutes: 5,
     coverImage: null,
     t: {

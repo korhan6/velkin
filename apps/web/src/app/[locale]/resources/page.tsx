@@ -89,8 +89,8 @@ export default async function ResourcesPage({ params }: Props) {
               '@type': 'Product',
               name: d.title,
               description: d.summary,
-              brand: { '@type': 'Brand', name: 'Velkin' },
-              manufacturer: { '@type': 'Organization', name: 'Velkin', url: SITE_URL },
+              brand: { '@type': 'Brand', name: 'Velkine' },
+              manufacturer: { '@type': 'Organization', name: 'Velkine', url: SITE_URL },
               ...(d.coverImage ? { image: d.coverImage } : {}),
             }))}
         />

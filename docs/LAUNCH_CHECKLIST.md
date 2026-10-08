@@ -38,7 +38,7 @@ Medido en local (`next start`, sin CDN, Lighthouse móvil con 4G lento simulado)
 
 ## SEO internacional
 - [x] `hreflang` + `x-default`, canonical, sitemap multilenguaje, OG por idioma, schema.org (Organization, Service, Article/TechArticle, Product en fichas técnicas). Lighthouse SEO 100.
-- [ ] Definir `SITE_URL=https://velkin.com` en Vercel (si no, los canonical apuntan a localhost).
+- [ ] Definir `SITE_URL=https://velkine.com` en Vercel (si no, los canonical apuntan a localhost).
 - [ ] Verificar dominio en Google Search Console y Bing; enviar `sitemap.xml`.
 
 ## Legal / privacidad

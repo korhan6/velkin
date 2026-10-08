@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Velkin — Ingeniería en robótica y automatización",
-    "description": "Velkin diseña y construye robots, celdas automatizadas y la electrónica y el software que los hacen funcionar, del prototipo a la producción en serie, para clientes industriales en todo el mundo."
+    "title": "Velkine — Ingeniería en robótica y automatización",
+    "description": "Velkine diseña y construye robots, celdas automatizadas y la electrónica y el software que los hacen funcionar, del prototipo a la producción en serie, para clientes industriales en todo el mundo."
   },
   "nav": {
     "services": "Servicios",
@@ -33,7 +33,7 @@
     "media": "VIDEO 01 — Robot o celda de producción en operación, loop de 10–15 s, sin audio, luz de estudio o industrial"
   },
   "positioning": {
-    "eyebrow": "Por qué Velkin",
+    "eyebrow": "Por qué Velkine",
     "statement": "Un solo equipo de ingeniería para mecánica, electrónica, firmware y software. Un contrato, un responsable, un cronograma.",
     "points": [
       { "title": "Todo el stack en casa", "body": "Estructura, actuación, PCB, firmware, ROS 2 e IA los diseña el mismo equipo, así las interfaces se resuelven antes de convertirse en problemas." },
@@ -172,7 +172,7 @@
   "about": {
     "eyebrow": "Nosotros",
     "title": "Una empresa de ingeniería hecha para entregar hardware.",
-    "lead": "Velkin reúne ingeniería mecánica, eléctrica, de firmware y de software en un solo equipo, para que robots y sistemas automatizados pasen de la idea a la producción sin quedar entre proveedores.",
+    "lead": "Velkine reúne ingeniería mecánica, eléctrica, de firmware y de software en un solo equipo, para que robots y sistemas automatizados pasen de la idea a la producción sin quedar entre proveedores.",
     "mission": "Misión",
     "missionBody": "Hacer prácticas las máquinas capaces: confiables en la planta, simples de mantener y diseñadas para las personas que trabajan a su lado.",
     "team": "Equipo",
@@ -206,7 +206,7 @@
       "email": "Email de trabajo",
       "name": "Nombre",
       "company": "Empresa",
-      "consent": "Acepto recibir actualizaciones técnicas ocasionales de Velkin. Puedo darme de baja en cualquier momento.",
+      "consent": "Acepto recibir actualizaciones técnicas ocasionales de Velkine. Puedo darme de baja en cualquier momento.",
       "submit": "Descargar",
       "skip": "Descargar sin suscribirme",
       "error": "No se pudo preparar la descarga. Inténtalo de nuevo."
@@ -267,18 +267,18 @@
     "termsTitle": "Términos de uso",
     "lastUpdated": "Última actualización",
     "privacy": [
-      "Responsable: Velkin. Contacto: privacy@velkin.com.",
+      "Responsable: Velkine. Contacto: privacy@velkine.com.",
       "Qué recopilamos: la información que envías en nuestros formularios (nombre, cargo, email, empresa, país, detalles del proyecto y archivos), registros técnicos básicos necesarios para la seguridad y, solo con tu consentimiento, analítica anónima y agregada.",
       "Finalidades: responder tu solicitud y preparar propuestas (medidas precontractuales), proteger nuestros servicios (interés legítimo), enviarte actualizaciones técnicas si lo aceptas y mejorar el sitio (consentimiento).",
       "Conservación: las solicitudes se conservan hasta 24 meses después de la última interacción, salvo que un contrato exija más. Puedes pedir su eliminación en cualquier momento.",
       "Encargados: hosting (Amazon Web Services, Vercel), CDN y seguridad (Cloudflare), envío de correo (Resend o Amazon SES). Las transferencias internacionales se amparan en Cláusulas Contractuales Tipo u otras garantías equivalentes.",
       "Tus derechos: acceso, rectificación, supresión, portabilidad, oposición y retiro del consentimiento según el RGPD, UK GDPR, CCPA/CPRA, LGPD, la Ley 1581 de 2012 de Colombia y normas similares. Respetamos las señales de Global Privacy Control y no vendemos ni compartimos información personal para publicidad comportamental.",
-      "Para ejercer tus derechos escribe a privacy@velkin.com. También puedes presentar una reclamación ante tu autoridad local de protección de datos."
+      "Para ejercer tus derechos escribe a privacy@velkine.com. También puedes presentar una reclamación ante tu autoridad local de protección de datos."
     ],
     "terms": [
-      "Velkin ofrece este sitio para informar sobre sus servicios. El contenido puede cambiar sin previo aviso.",
+      "Velkine ofrece este sitio para informar sobre sus servicios. El contenido puede cambiar sin previo aviso.",
       "Los casos, especificaciones y cifras son ilustrativos y no constituyen una oferta vinculante. Las propuestas solo obligan mediante un acuerdo firmado.",
-      "Las marcas, diseños y contenidos de este sitio pertenecen a Velkin o a sus respectivos titulares y no pueden reutilizarse sin permiso.",
+      "Las marcas, diseños y contenidos de este sitio pertenecen a Velkine o a sus respectivos titulares y no pueden reutilizarse sin permiso.",
       "Los archivos que subas siguen siendo tuyos; solo los usamos para evaluar tu solicitud y los tratamos como confidenciales.",
       "En la medida que la ley lo permita, el sitio se ofrece tal cual, sin garantías."
     ],

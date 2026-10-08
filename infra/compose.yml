@@ -1,8 +1,8 @@
 # ─────────────────────────────────────────────────────────────────────────────
-# Velkin — shared core for ALL Velkin backends on one EC2 instance.
+# Velkine — shared core for ALL Velkine backends on one EC2 instance.
 # Projects live in infra/projects/*.yml and are merged via COMPOSE_FILE (see .env).
 # Add a project: copy projects/_template.yml → projects/<name>.yml, append it to
-# COMPOSE_FILE, `docker compose up -d`. DNS: the proxied wildcard *.velkin.com
+# COMPOSE_FILE, `docker compose up -d`. DNS: the proxied wildcard *.velkine.com
 # already points here, so no new record is needed.
 # ─────────────────────────────────────────────────────────────────────────────
 name: velkin

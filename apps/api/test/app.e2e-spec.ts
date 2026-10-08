@@ -11,7 +11,7 @@ process.env.JWT_ACCESS_SECRET ??= 'e2e-secret-e2e-secret-e2e-secret-e2e';
 process.env.MAIL_PROVIDER = 'log';
 process.env.NODE_ENV = 'test';
 
-describe('Velkin API (e2e)', () => {
+describe('Velkine API (e2e)', () => {
   let app: INestApplication;
 
   beforeAll(async () => {

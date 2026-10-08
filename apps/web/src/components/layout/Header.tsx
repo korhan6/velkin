@@ -49,7 +49,7 @@ export function Header() {
         }`}
       >
         <div className="frame flex h-full items-center justify-between gap-6">
-          <Link href="/" className="flex items-center gap-3" aria-label="Velkin">
+          <Link href="/" className="flex items-center gap-3" aria-label="Velkine">
             <LogoMark articulate className="h-8 w-8" title="" />
             <Wordmark className="h-[13px] w-auto" title="" />
           </Link>

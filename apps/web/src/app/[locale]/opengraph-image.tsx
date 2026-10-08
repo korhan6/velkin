@@ -3,7 +3,7 @@ import { getTranslations } from 'next-intl/server';
 
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
-export const alt = 'Velkin — Motion Engineered';
+export const alt = 'Velkine — Motion Engineered';
 
 /** Generated Open Graph image per locale, inherited by pages that don't define their own. */
 export default async function OgImage({ params }: { params: Promise<{ locale: string }> }) {
@@ -19,7 +19,7 @@ export default async function OgImage({ params }: { params: Promise<{ locale: st
             <circle cx="32" cy="52" r="6.5" fill="#FAFAF8" />
             <circle cx="32" cy="52" r="4.4" fill="none" stroke="#1F3FA6" strokeWidth="2.4" />
           </svg>
-          <div style={{ fontSize: 36, letterSpacing: 12, fontWeight: 600 }}>VELKIN</div>
+          <div style={{ fontSize: 36, letterSpacing: 12, fontWeight: 600 }}>VELKINE</div>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <div style={{ fontSize: 68, lineHeight: 1.05, letterSpacing: -2, fontWeight: 600, maxWidth: 980 }}>{t('title')}</div>

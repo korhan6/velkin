@@ -33,7 +33,7 @@ async function bootstrap() {
   if (e.SWAGGER_ENABLED || e.NODE_ENV !== 'production') {
     const doc = SwaggerModule.createDocument(
       app,
-      new DocumentBuilder().setTitle('Velkin API').setDescription('Leads, CMS and admin API').setVersion('1.0').addBearerAuth().build(),
+      new DocumentBuilder().setTitle('Velkine API').setDescription('Leads, CMS and admin API').setVersion('1.0').addBearerAuth().build(),
     );
     SwaggerModule.setup('docs', app, doc, { jsonDocumentUrl: 'docs/openapi.json' });
   }

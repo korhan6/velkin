@@ -25,14 +25,14 @@ export default async function ContactPage({ params }: Props) {
   const [t, services, h] = await Promise.all([getTranslations('contact'), getServices(locale), headers()]);
   const geo = (h.get('cf-ipcountry') || h.get('x-vercel-ip-country') || '').toUpperCase();
   const defaultCountry = COUNTRY_CODES.includes(geo) ? geo : locale === 'es' ? 'CO' : 'US';
-  const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'hello@velkin.com';
+  const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'hello@velkine.com';
   const wa = process.env.NEXT_PUBLIC_WHATSAPP;
   const linkedin = process.env.NEXT_PUBLIC_LINKEDIN_URL || 'https://www.linkedin.com/company/velkin';
 
   const direct: { icon: string; label: string; value: string; href: string; external?: boolean }[] = [
     { icon: 'mail', label: t('email'), value: email, href: `mailto:${email}` },
     ...(wa ? [{ icon: 'phone', label: t('whatsapp'), value: `+${wa}`, href: `https://wa.me/${wa}`, external: true }] : []),
-    { icon: 'linkedin', label: t('linkedin'), value: 'Velkin', href: linkedin, external: true },
+    { icon: 'linkedin', label: t('linkedin'), value: 'Velkine', href: linkedin, external: true },
   ];
 
   return (

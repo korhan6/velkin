@@ -1,5 +1,5 @@
 [Unit]
-Description=Velkin PostgreSQL backup to S3
+Description=Velkine PostgreSQL backup to S3
 After=docker.service
 Requires=docker.service
 

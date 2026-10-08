@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1.7
-# Build from the monorepo root: docker build -f apps/admin/Dockerfile --build-arg NEXT_PUBLIC_API_URL=https://api.velkin.com -t velkin-admin .
+# Build from the monorepo root: docker build -f apps/admin/Dockerfile --build-arg NEXT_PUBLIC_API_URL=https://api.velkine.com -t velkin-admin .
 FROM node:22-alpine AS base
 ENV PNPM_HOME=/pnpm PATH=/pnpm:$PATH NEXT_TELEMETRY_DISABLED=1
 RUN corepack enable && apk add --no-cache libc6-compat
@@ -7,9 +7,9 @@ WORKDIR /repo
 
 FROM base AS build
 # NEXT_PUBLIC_* values are inlined at build time
-ARG NEXT_PUBLIC_API_URL=https://api.velkin.com
+ARG NEXT_PUBLIC_API_URL=https://api.velkine.com
 ARG NEXT_PUBLIC_LOCALES=en,es
-ARG NEXT_PUBLIC_ANALYTICS_URL=https://analytics.velkin.com
+ARG NEXT_PUBLIC_ANALYTICS_URL=https://analytics.velkine.com
 ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL NEXT_PUBLIC_LOCALES=$NEXT_PUBLIC_LOCALES NEXT_PUBLIC_ANALYTICS_URL=$NEXT_PUBLIC_ANALYTICS_URL
 COPY pnpm-lock.yaml pnpm-workspace.yaml package.json ./
 COPY apps/admin/package.json apps/admin/

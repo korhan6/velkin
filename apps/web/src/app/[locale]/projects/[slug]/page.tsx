@@ -182,8 +182,8 @@ export default async function ProjectPage({ params }: Props) {
           headline: project.title,
           description: project.summary,
           inLanguage: locale,
-          author: { '@type': 'Organization', name: 'Velkin', url: SITE_URL },
-          publisher: { '@type': 'Organization', name: 'Velkin', logo: { '@type': 'ImageObject', url: `${SITE_URL}/icon.svg` } },
+          author: { '@type': 'Organization', name: 'Velkine', url: SITE_URL },
+          publisher: { '@type': 'Organization', name: 'Velkine', logo: { '@type': 'ImageObject', url: `${SITE_URL}/icon.svg` } },
           mainEntityOfPage: `${SITE_URL}/${locale}/projects/${slug}`,
           ...(project.heroImage ? { image: project.heroImage } : {}),
         }}

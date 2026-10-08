@@ -4,7 +4,7 @@ import { Icon } from '../ui/Icon';
 
 export async function Cta() {
   const t = await getTranslations('cta');
-  const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'hello@velkin.com';
+  const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'hello@velkine.com';
   return (
     <section className="section border-t border-line bg-surface" aria-labelledby="cta-title">
       <div className="frame grid-12 items-end gap-y-10">

@@ -58,8 +58,8 @@ export default async function ArticlePage({ params }: Props) {
           description: post.excerpt,
           datePublished: post.publishedAt,
           inLanguage: locale,
-          author: { '@type': 'Organization', name: post.authorName ?? 'Velkin' },
-          publisher: { '@type': 'Organization', name: 'Velkin', logo: { '@type': 'ImageObject', url: `${SITE_URL}/icon.svg` } },
+          author: { '@type': 'Organization', name: post.authorName ?? 'Velkine' },
+          publisher: { '@type': 'Organization', name: 'Velkine', logo: { '@type': 'ImageObject', url: `${SITE_URL}/icon.svg` } },
           mainEntityOfPage: `${SITE_URL}/${locale}/resources/${slug}`,
           keywords: post.tags.join(', '),
         }}

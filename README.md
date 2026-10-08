@@ -1,12 +1,12 @@
-# Velkin — Motion Engineered
+# Velkine — Motion Engineered
 
-Sitio corporativo + backend + panel admin + infraestructura de Velkin, en un monorepo (pnpm + Turborepo).
+Sitio corporativo + backend + panel admin + infraestructura de Velkine, en un monorepo (pnpm + Turborepo).
 
 ```
 velkin/
 ├─ apps/
 │  ├─ web/      Next.js 15 (App Router) · TypeScript · Tailwind · next-intl · tema claro corporativo  → Vercel
-│  ├─ admin/    Next.js — admin.velkin.com: leads por región/estado, CMS multilenguaje, descargas, usuarios, 2FA → EC2
+│  ├─ admin/    Next.js — admin.velkine.com: leads por región/estado, CMS multilenguaje, descargas, usuarios, 2FA → EC2
 │  └─ api/      NestJS 11 · Prisma · PostgreSQL · Redis · S3 · Resend/SES · Turnstile · Swagger → EC2
 ├─ packages/
 │  └─ ui/       Tokens de marca (paleta, acento azul #1F3FA6) + Logo (isotipo V + wordmark)

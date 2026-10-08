@@ -29,7 +29,7 @@ export function pageMeta(opts: {
       url: `${SITE_URL}/${opts.locale}${opts.path === '/' ? '' : opts.path}`,
       type: opts.type ?? 'website',
       locale: opts.locale,
-      siteName: 'Velkin',
+      siteName: 'Velkine',
     },
     twitter: { card: 'summary_large_image', title: opts.title, description: opts.description },
   };
@@ -38,11 +38,11 @@ export function pageMeta(opts: {
 export const organizationSchema = () => ({
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Velkin',
+  name: 'Velkine',
   slogan: 'Motion Engineered',
   url: SITE_URL,
   logo: `${SITE_URL}/icon.svg`,
-  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'hello@velkin.com',
+  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'hello@velkine.com',
   areaServed: 'Worldwide',
   knowsAbout: ['Robotics', 'Industrial automation', 'PCB design', 'Embedded firmware', 'ROS 2', 'Artificial intelligence'],
 });

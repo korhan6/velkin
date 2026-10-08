@@ -79,7 +79,7 @@ export default function LeadDetail() {
               <option key={s}>{s}</option>
             ))}
           </select>
-          <a className="btn-primary" href={`mailto:${lead.email}?subject=${encodeURIComponent(`Velkin · ${lead.reference}`)}`}>
+          <a className="btn-primary" href={`mailto:${lead.email}?subject=${encodeURIComponent(`Velkine · ${lead.reference}`)}`}>
             Reply
           </a>
         </div>

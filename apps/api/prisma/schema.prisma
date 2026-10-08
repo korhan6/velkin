@@ -1,4 +1,4 @@
-// Velkin site API — all timestamps stored as timestamptz in UTC.
+// Velkine site API — all timestamps stored as timestamptz in UTC.
 generator client {
   provider      = "prisma-client-js"
   binaryTargets = ["native", "linux-musl-openssl-3.0.x", "linux-musl-arm64-openssl-3.0.x"]

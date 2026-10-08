@@ -8,7 +8,7 @@ import { LocaleSwitcher } from './LocaleSwitcher';
 
 export async function Footer({ services }: { services: Service[] }) {
   const t = await getTranslations();
-  const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'hello@velkin.com';
+  const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'hello@velkine.com';
   const linkedin = process.env.NEXT_PUBLIC_LINKEDIN_URL || 'https://www.linkedin.com/company/velkin';
   const wa = process.env.NEXT_PUBLIC_WHATSAPP;
   const col = 'space-y-3 text-[15px] text-on-graphite-2';
@@ -19,7 +19,7 @@ export async function Footer({ services }: { services: Service[] }) {
       <div className="frame">
         <div className="grid-12 gap-y-12">
           <div className="col-span-4 sm:col-span-8 lg:col-span-4">
-            <Link href="/" className="flex items-center gap-3" aria-label="Velkin">
+            <Link href="/" className="flex items-center gap-3" aria-label="Velkine">
               <LogoMark className="h-9 w-9" title="" />
               <Wordmark className="h-[14px] w-auto" title="" />
             </Link>
@@ -63,7 +63,7 @@ export async function Footer({ services }: { services: Service[] }) {
         </div>
 
         <div className="mt-16 flex flex-col gap-5 border-t border-white/10 pt-8 text-[13px] text-on-graphite-2 lg:flex-row lg:items-center lg:justify-between">
-          <span>© {new Date().getUTCFullYear()} Velkin. {t('footer.rights')}</span>
+          <span>© {new Date().getUTCFullYear()} Velkine. {t('footer.rights')}</span>
           <ul className="flex flex-wrap gap-x-6 gap-y-2">
             <li><Link href="/legal/privacy" className="hover:text-on-graphite">{t('footer.privacy')}</Link></li>
             <li><Link href="/legal/terms" className="hover:text-on-graphite">{t('footer.terms')}</Link></li>

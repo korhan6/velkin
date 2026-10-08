@@ -1,4 +1,4 @@
-# Project: velkin.com website backend (API + admin panel) — subdomains api.* and admin.*
+# Project: velkine.com website backend (API + admin panel) — subdomains api.* and admin.*
 x-logging: &logging
   driver: awslogs
   options:

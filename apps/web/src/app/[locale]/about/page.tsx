@@ -4,7 +4,7 @@ import { Cta } from '@/components/home/Cta';
 import { Icon } from '@/components/ui/Icon';
 import { Media } from '@/components/ui/Media';
 import { PageHeader } from '@/components/ui/PageHeader';
-import { getTeam } from '@/lib/content';
+import { getFacilityPhotos, getTeam } from '@/lib/content';
 import { TEAM_PHOTO } from '@/lib/photo-briefs';
 import { pageMeta } from '@/lib/seo';
 
@@ -23,6 +23,7 @@ export default async function AboutPage({ params }: Props) {
   setRequestLocale(locale);
   const [t, team] = await Promise.all([getTranslations('about'), getTeam(locale)]);
   const photos = t.raw('facilitiesPhotos') as string[];
+  const facility = getFacilityPhotos();
   const intl = t.raw('international.items') as { t: string; b: string }[];
 
   return (
@@ -63,13 +64,13 @@ export default async function AboutPage({ params }: Props) {
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             <div className="reveal-mask md:col-span-2 md:row-span-2">
-              <Media label={photos[0]} ratio="4/3" sizes="(min-width:768px) 66vw, 100vw" />
+              <Media src={facility[0]} alt={photos[0]} label={photos[0]} ratio="4/3" sizes="(min-width:768px) 66vw, 100vw" />
             </div>
             <div className="reveal-mask" style={{ ['--d' as string]: '80ms' }}>
-              <Media label={photos[1]} ratio="4/3" sizes="(min-width:768px) 33vw, 100vw" />
+              <Media src={facility[1]} alt={photos[1]} label={photos[1]} ratio="4/3" sizes="(min-width:768px) 33vw, 100vw" />
             </div>
             <div className="reveal-mask" style={{ ['--d' as string]: '160ms' }}>
-              <Media label={photos[2]} ratio="4/3" sizes="(min-width:768px) 33vw, 100vw" />
+              <Media src={facility[2]} alt={photos[2]} label={photos[2]} ratio="4/3" sizes="(min-width:768px) 33vw, 100vw" />
             </div>
           </div>
         </div>

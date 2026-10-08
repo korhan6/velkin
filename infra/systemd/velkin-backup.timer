@@ -1,5 +1,5 @@
 [Unit]
-Description=Daily Velkin backup (03:15 UTC)
+Description=Daily Velkine backup (03:15 UTC)
 
 [Timer]
 OnCalendar=*-*-* 03:15:00 UTC

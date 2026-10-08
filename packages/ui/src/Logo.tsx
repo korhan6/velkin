@@ -10,7 +10,7 @@ const PX = 32;
 const PY = 52;
 
 export function LogoMark({
-  title = 'Velkin',
+  title = 'Velkine',
   className,
   articulate = false,
   ...rest
@@ -34,7 +34,7 @@ export function LogoMark({
   );
 }
 
-/** Wordmark VELKIN — geometric caps; the "E" has no vertical stem (three floating bars). */
+/** Wordmark VELKINE — geometric caps; both "E" have no vertical stem (three floating bars). */
 export const WORDMARK_LETTERS: { char: string; d: string }[] = [
   { char: 'V', d: 'M0 0 L15 40 L30 0' },
   { char: 'E', d: 'M44 0 H72 M44 20 H68 M44 40 H72' },
@@ -42,12 +42,13 @@ export const WORDMARK_LETTERS: { char: string; d: string }[] = [
   { char: 'K', d: 'M126 0 V40 M154 0 L130 22 M136 17 L154 40' },
   { char: 'I', d: 'M168 0 V40' },
   { char: 'N', d: 'M182 40 V0 L212 40 V0' },
+  { char: 'E', d: 'M226 0 H254 M226 20 H250 M226 40 H254' },
 ];
 
-export function Wordmark({ className, title = 'VELKIN', ...rest }: SVGProps<SVGSVGElement> & { title?: string }) {
+export function Wordmark({ className, title = 'VELKINE', ...rest }: SVGProps<SVGSVGElement> & { title?: string }) {
   const a11y = title ? { role: 'img', 'aria-label': title } : { 'aria-hidden': true as const };
   return (
-    <svg viewBox="-4 -4 222 48" className={className} {...a11y} {...rest}>
+    <svg viewBox="-4 -4 264 48" className={className} {...a11y} {...rest}>
       <g fill="none" stroke="currentColor" strokeWidth="5.2" strokeLinecap="square" strokeLinejoin="miter">
         {WORDMARK_LETTERS.map((l, i) => (
           <path key={l.char + i} d={l.d} />

@@ -17,14 +17,14 @@ function setup(resource: Record<string, unknown> | null) {
 const wp = {
   id: 'r1',
   slug: 'cobot-safety',
-  translations: { en: { title: 'Cobot safety', summary: 's', fileUrl: 'https://media.velkin.com/en.pdf' }, es: { fileUrl: 'https://media.velkin.com/es.pdf' } },
+  translations: { en: { title: 'Cobot safety', summary: 's', fileUrl: 'https://media.velkine.com/en.pdf' }, es: { fileUrl: 'https://media.velkine.com/es.pdf' } },
 };
 
 describe('CmsService.download', () => {
   it('returns the localized file and stores contact data only with consent', async () => {
     const { svc, created } = setup(wp);
     const r = await svc.download('cobot-safety', { email: 'Ana@Plant.com', name: 'Ana', consent: true, locale: 'es' }, 'MX');
-    expect(r.url).toBe('https://media.velkin.com/es.pdf');
+    expect(r.url).toBe('https://media.velkine.com/es.pdf');
     expect(created[0]).toMatchObject({ email: 'ana@plant.com', name: 'Ana', consent: true, country: 'MX' });
   });
 
@@ -36,7 +36,7 @@ describe('CmsService.download', () => {
 
   it('falls back to the English file', async () => {
     const { svc } = setup(wp);
-    expect((await svc.download('cobot-safety', { consent: false, locale: 'pt' }, null)).url).toBe('https://media.velkin.com/en.pdf');
+    expect((await svc.download('cobot-safety', { consent: false, locale: 'pt' }, null)).url).toBe('https://media.velkine.com/en.pdf');
   });
 
   it('404s for unpublished or unknown resources', async () => {

@@ -1,4 +1,4 @@
-# Velkin — Dirección de arte (versión corporativa, aprobada)
+# Velkine — Dirección de arte (versión corporativa, aprobada)
 
 **Idea:** *Precisión silenciosa.* La confianza se gana con fotografía impecable, tipografía bien espaciada y datos concretos. Referencias de acabado: ABB, Siemens, Boston Dynamics, páginas de producto de Apple, Stripe, Linear, Teenage Engineering.
 

@@ -119,7 +119,7 @@ export default async function ServicePage({ params }: Props) {
           description: service.summary,
           serviceType: service.title,
           areaServed: 'Worldwide',
-          provider: { '@type': 'Organization', name: 'Velkin', url: SITE_URL },
+          provider: { '@type': 'Organization', name: 'Velkine', url: SITE_URL },
           url: `${SITE_URL}/${locale}/services/${slug}`,
           hasOfferCatalog: {
             '@type': 'OfferCatalog',

@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Velkin — Robotics and automation engineering",
-    "description": "Velkin designs and builds robots, automated cells and the electronics and software behind them — from prototype to series production, for industrial clients worldwide."
+    "title": "Velkine — Robotics and automation engineering",
+    "description": "Velkine designs and builds robots, automated cells and the electronics and software behind them — from prototype to series production, for industrial clients worldwide."
   },
   "nav": {
     "services": "Services",
@@ -33,7 +33,7 @@
     "media": "VIDEO 01 — Robot or production cell in operation, 10–15 s loop, no audio, studio or industrial light"
   },
   "positioning": {
-    "eyebrow": "Why Velkin",
+    "eyebrow": "Why Velkine",
     "statement": "One engineering team for mechanics, electronics, firmware and software. One contract, one point of accountability, one schedule.",
     "points": [
       { "title": "Full stack in-house", "body": "Structure, actuation, PCBs, firmware, ROS 2 and AI are designed by the same team, so interfaces are solved before they become problems." },
@@ -172,7 +172,7 @@
   "about": {
     "eyebrow": "About",
     "title": "An engineering company built to deliver hardware.",
-    "lead": "Velkin brings mechanical, electrical, firmware and software engineering into one team so robots and automated systems move from idea to production without falling between suppliers.",
+    "lead": "Velkine brings mechanical, electrical, firmware and software engineering into one team so robots and automated systems move from idea to production without falling between suppliers.",
     "mission": "Mission",
     "missionBody": "Make capable machines practical: reliable on the factory floor, simple to maintain and designed for the people who work alongside them.",
     "team": "Team",
@@ -206,7 +206,7 @@
       "email": "Work email",
       "name": "Name",
       "company": "Company",
-      "consent": "I agree to receive occasional technical updates from Velkin. I can unsubscribe at any time.",
+      "consent": "I agree to receive occasional technical updates from Velkine. I can unsubscribe at any time.",
       "submit": "Download",
       "skip": "Download without subscribing",
       "error": "The download could not be prepared. Please try again."
@@ -267,18 +267,18 @@
     "termsTitle": "Terms of Use",
     "lastUpdated": "Last updated",
     "privacy": [
-      "Controller: Velkin. Contact: privacy@velkin.com.",
+      "Controller: Velkine. Contact: privacy@velkine.com.",
       "What we collect: information you submit in our forms (name, job title, email, company, country, project details and files), basic technical logs needed for security and, only with your consent, anonymous aggregated analytics.",
       "Purposes: answering your request and preparing proposals (pre-contractual steps), securing our services (legitimate interest), sending technical updates when you opt in, and improving the site (consent).",
       "Retention: requests are kept for up to 24 months after the last interaction unless a contract requires longer. You may request deletion at any time.",
       "Processors: hosting (Amazon Web Services, Vercel), CDN and security (Cloudflare), email delivery (Resend or Amazon SES). International transfers rely on Standard Contractual Clauses or equivalent safeguards.",
       "Your rights: access, rectification, erasure, portability, objection and withdrawal of consent under GDPR, UK GDPR, CCPA/CPRA, LGPD, Colombian Law 1581 of 2012 and similar laws. We honour Global Privacy Control signals and do not sell or share personal information for cross-context behavioural advertising.",
-      "To exercise your rights, write to privacy@velkin.com. You may also lodge a complaint with your local data protection authority."
+      "To exercise your rights, write to privacy@velkine.com. You may also lodge a complaint with your local data protection authority."
     ],
     "terms": [
-      "This website is provided by Velkin to inform about its services. Content may change without notice.",
+      "This website is provided by Velkine to inform about its services. Content may change without notice.",
       "Case studies, specifications and figures are illustrative and do not constitute a binding offer. Proposals become binding only through a signed agreement.",
-      "Trademarks, designs and content on this site belong to Velkin or their respective owners and may not be reused without permission.",
+      "Trademarks, designs and content on this site belong to Velkine or their respective owners and may not be reused without permission.",
       "Files you upload remain your property; we use them only to evaluate your request and treat them as confidential.",
       "To the extent permitted by law, the site is provided as is, without warranties."
     ],

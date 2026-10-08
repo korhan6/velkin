@@ -5,26 +5,26 @@ const COPY: Record<string, Copy> = {
   en: {
     subject: (r) => `We received your request · ${r}`,
     hello: (n) => `Hi ${n},`,
-    body: 'Thanks for contacting Velkin. An engineer is reviewing your project and will reply within one business day.',
+    body: 'Thanks for contacting Velkine. An engineer is reviewing your project and will reply within one business day.',
     ref: 'Reference',
     call: 'Requested call',
-    sign: '— Velkin · Motion Engineered',
+    sign: '— Velkine · Motion Engineered',
   },
   es: {
     subject: (r) => `Recibimos tu solicitud · ${r}`,
     hello: (n) => `Hola ${n},`,
-    body: 'Gracias por contactar a Velkin. Un ingeniero está revisando tu proyecto y te responderá en un día hábil.',
+    body: 'Gracias por contactar a Velkine. Un ingeniero está revisando tu proyecto y te responderá en un día hábil.',
     ref: 'Referencia',
     call: 'Llamada solicitada',
-    sign: '— Velkin · Motion Engineered',
+    sign: '— Velkine · Motion Engineered',
   },
   pt: {
     subject: (r) => `Recebemos sua solicitação · ${r}`,
     hello: (n) => `Olá ${n},`,
-    body: 'Obrigado por contatar a Velkin. Um engenheiro está analisando seu projeto e responderá em até um dia útil.',
+    body: 'Obrigado por contatar a Velkine. Um engenheiro está analisando seu projeto e responderá em até um dia útil.',
     ref: 'Referência',
     call: 'Chamada solicitada',
-    sign: '— Velkin · Motion Engineered',
+    sign: '— Velkine · Motion Engineered',
   },
 };
 
@@ -42,7 +42,7 @@ export function autoReply(opts: { locale: string; name: string; reference: strin
 <table width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding:40px 16px">
 <table width="560" cellpadding="0" cellspacing="0" style="max-width:560px;border:1px solid #2E2E2C;border-radius:12px">
 <tr><td style="padding:32px">
-<p style="margin:0 0 24px;font-family:monospace;font-size:12px;letter-spacing:3px;color:#FF5A1F">VELKIN · MOTION ENGINEERED</p>
+<p style="margin:0 0 24px;font-family:monospace;font-size:12px;letter-spacing:3px;color:#FF5A1F">VELKINE · MOTION ENGINEERED</p>
 <p style="margin:0 0 16px;font-size:18px">${esc(c.hello(opts.name))}</p>
 <p style="margin:0 0 24px;line-height:1.6;color:#BDBDBA">${esc(c.body)}</p>
 <p style="margin:0;font-family:monospace;font-size:13px">${esc(c.ref)}: <strong>${esc(opts.reference)}</strong></p>

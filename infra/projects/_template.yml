@@ -1,4 +1,4 @@
-# TEMPLATE — new Velkin project backend at <name>.<domain>
+# TEMPLATE — new Velkine project backend at <name>.<domain>
 # 1) cp projects/_template.yml projects/<name>.yml and replace every "myproj"
 # 2) Append ":projects/<name>.yml" to COMPOSE_FILE in infra/.env
 # 3) ./scripts/create-project-db.sh myproj   (creates database + role, stores password in SSM)

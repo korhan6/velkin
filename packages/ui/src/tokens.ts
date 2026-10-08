@@ -1,5 +1,5 @@
 /**
- * Velkin design tokens — corporate light theme. Single source of truth for web + admin.
+ * Velkine design tokens — corporate light theme. Single source of truth for web + admin.
  * Contrasts (WCAG 2.2) measured on bg #FAFAF8:
  *   ink 18:1 · ink2 10.4:1 · ink3 5.1:1 · accent 8.7:1 (white on accent 9:1)
  * Accent: Azul industrial profundo. Alternative kept for reference: naranja quemado #B4410F.

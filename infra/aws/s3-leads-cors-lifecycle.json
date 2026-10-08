@@ -3,7 +3,7 @@
   "cors": {
     "CORSRules": [
       {
-        "AllowedOrigins": ["https://velkin.com", "https://www.velkin.com", "http://localhost:3000"],
+        "AllowedOrigins": ["https://velkine.com", "https://www.velkine.com", "http://localhost:3000"],
         "AllowedMethods": ["PUT"],
         "AllowedHeaders": ["content-type", "content-length"],
         "MaxAgeSeconds": 3600

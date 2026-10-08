@@ -11,6 +11,6 @@ export const SERVICE_PHOTOS: Record<string, string> = {
   'prototyping-manufacturing': 'FOTO S5 — Taller: CNC o impresoras 3D trabajando, plano amplio, luz industrial, 4:3',
 };
 
-export const INDUSTRY_PHOTO = (title: string) => `FOTO — ${title}: sistema Velkin operando en su entorno real, 3:2`;
+export const INDUSTRY_PHOTO = (title: string) => `FOTO — ${title}: sistema Velkine operando en su entorno real, 3:2`;
 export const PROJECT_PHOTO = (title: string) => `FOTO — ${title}: plano principal del sistema entregado, 16:9`;
 export const TEAM_PHOTO = (name: string) => `FOTO — Retrato de ${name}, fondo gris neutro, luz suave, 4:5`;

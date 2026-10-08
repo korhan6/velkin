@@ -31,10 +31,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: 'meta' });
   return {
     metadataBase: new URL(SITE_URL),
-    title: { default: t('title'), template: '%s · Velkin' },
+    title: { default: t('title'), template: '%s · Velkine' },
     description: t('description'),
     alternates: alternates(locale, ''),
-    openGraph: { siteName: 'Velkin', locale, type: 'website', title: t('title'), description: t('description') },
+    openGraph: { siteName: 'Velkine', locale, type: 'website', title: t('title'), description: t('description') },
     twitter: { card: 'summary_large_image' },
     icons: { icon: '/icon.svg' },
   };
